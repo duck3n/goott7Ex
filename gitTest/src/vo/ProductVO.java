@@ -3,120 +3,81 @@ package vo;
 public class ProductVO {
 
 	// DB와 동일한 변수 선언
-	private String pid;
+	private String pno;
+	private String pbrend;
 	private String pname;
-	private int pprice;
 	private String pdesc;
-	private String manuf;
-	private int pstock;
-	private String pimage;
+	private String qty;
 	private String pcat;
+	private int imgfile;
 	
-	// 생성자 generate
-	public ProductVO() {
-		// TODO Auto-generated constructor stub
-	}
+	public ProductVO() {}
 	
-	
-	// 생성자 overloading
-	public ProductVO(String pid, String pname, int pprice, String pdesc, String manuf, int pstock, String pimage,
-			String pcat) {
+	public ProductVO(String pno, String pbrend, String pname, String pdesc, String qty, String pcat, int imgfile) {
 		super();
-		this.pid = pid;
+		this.pno = pno;
+		this.pbrend = pbrend;
 		this.pname = pname;
-		this.pprice = pprice;
 		this.pdesc = pdesc;
-		this.manuf = manuf;
-		this.pstock = pstock;
-		this.pimage = pimage;
+		this.qty = qty;
 		this.pcat = pcat;
+		this.imgfile = imgfile;
 	}
 
-	
-	
-	// get/set
-	public String getPid() {
-		return pid;
+	public String getPno() {
+		return pno;
 	}
 
-
-	public void setPid(String pid) {
-		this.pid = pid;
+	public void setPno(String pno) {
+		this.pno = pno;
 	}
 
+	public String getPbrend() {
+		return pbrend;
+	}
+
+	public void setPbrend(String pbrend) {
+		this.pbrend = pbrend;
+	}
 
 	public String getPname() {
 		return pname;
 	}
 
-
 	public void setPname(String pname) {
 		this.pname = pname;
 	}
-
-
-	public int getPprice() {
-		return pprice;
-	}
-
-
-	public void setPprice(int pprice) {
-		this.pprice = pprice;
-	}
-
 
 	public String getPdesc() {
 		return pdesc;
 	}
 
-
 	public void setPdesc(String pdesc) {
 		this.pdesc = pdesc;
 	}
 
-
-	public String getManuf() {
-		return manuf;
+	public String getQty() {
+		return qty;
 	}
 
-
-	public void setManuf(String manuf) {
-		this.manuf = manuf;
+	public void setQty(String qty) {
+		this.qty = qty;
 	}
-
-
-	public int getPstock() {
-		return pstock;
-	}
-
-
-	public void setPstock(int pstock) {
-		this.pstock = pstock;
-	}
-
-
-	public String getPimage() {
-		return pimage;
-	}
-
-
-	public void setPimage(String pimage) {
-		this.pimage = pimage;
-	}
-
 
 	public String getPcat() {
 		return pcat;
 	}
 
-
 	public void setPcat(String pcat) {
 		this.pcat = pcat;
 	}
-	
-	
-	
-	
-	
+
+	public int getImgfile() {
+		return imgfile;
+	}
+
+	public void setImgfile(int imgfile) {
+		this.imgfile = imgfile;
+	}
 	
 }
