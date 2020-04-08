@@ -3,7 +3,8 @@
 html, body {
 	margin: 0;
  	padding: 0;
-	height: 2000px;
+	background-color: #eee8da;
+	min-height: 100%;
 }
 #container {
 	margin: 0;
@@ -21,7 +22,7 @@ html, body {
 	margin-top: 0;
 }
 #nav_local{
-	width: 450px;
+	width: 600px;
 	margin: 0 auto;
 }
 nav li{
@@ -38,6 +39,7 @@ nav ul{
 }
 li a{
 	text-decoration: none;
+	color: #403732;
 }
 
 /* 몸통 */

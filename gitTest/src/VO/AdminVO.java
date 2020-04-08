@@ -1,4 +1,4 @@
-package vo;
+package VO;
 
 public class AdminVO {
 	private String mid;
