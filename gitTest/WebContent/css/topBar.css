@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* 전체부분 조정 */
+html, body {
+	margin: 0;
+ 	padding: 0;
+	background-color: #eee8da;
+	min-height: 100%;
+}
+#container {
+	margin: 0;
+	padding: 0;
+ 	width: 100%;
+}
+
+/* 네비바 CSS */
+#nav_container {
+	height: 30px;
+	width: 100%;
+	background-color: yellow;
+
+	position: fixed;
+	margin-top: 0;
+}
+#nav_local{
+	width: 600px;
+	margin: 0 auto;
+}
+nav li{
+	float: left;
+	height: 30px;
+	width: 150px;
+	list-style-type: none;
+	text-align: center;
+	padding-top: 5px;
+}
+nav ul{
+	padding: 0;
+	margin-top: 10px;
+}
+li a{
+	text-decoration: none;
+	color: #403732;
+}
+
+/* 몸통 */
+#body_container{
+	padding-top: 50px;
+	width: 90%;
+	margin: 0 auto;
+}

@@ -12,8 +12,8 @@ public class OracleXEConnection {
 	
 	final String DRIVER = "oracle.jdbc.driver.OracleDriver";
 	final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-	final String USER = "scott";
-	final String PASSWORD = "tiger";
+	final String USER = "team";
+	final String PASSWORD = "123";
 
 	// 생성자 초기화
 	private OracleXEConnection() {
