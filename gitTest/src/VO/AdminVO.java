@@ -7,6 +7,12 @@ public class AdminVO {
 	
 	public AdminVO() {}
 	
+	public AdminVO(String mid, String mpw) {
+		super();
+		this.mid = mid;
+		this.mpw = mpw;
+	}
+	
 	public AdminVO(String mid, char mlevel, String mpw) {
 		super();
 		this.mid = mid;

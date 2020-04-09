@@ -1,15 +1,14 @@
 package VO;
 
 public class boardVO {
-	private int bno, hits, status;
+	private int bno, status;
 	private String title, memid, contents, dates, category;
 	
 	public boardVO() {}
 
-	public boardVO(int bno, int hits, int status, String title, String memid, String contents, String dates, String category) {
+	public boardVO(int bno, int status, String title, String memid, String contents, String dates, String category) {
 		super();
 		this.bno = bno;
-		this.hits = hits;
 		this.status = status;
 		this.title = title;
 		this.memid = memid;
@@ -24,14 +23,6 @@ public class boardVO {
 
 	public void setBno(int bno) {
 		this.bno = bno;
-	}
-
-	public int getHits() {
-		return hits;
-	}
-
-	public void setHits(int hits) {
-		this.hits = hits;
 	}
 
 	public String getTitle() {
@@ -83,7 +74,7 @@ public class boardVO {
 	}
 
 	public String toString() {
-		return "boardVO [hits=" + hits + ", title=" + title + ", memid="+ memid 
+		return "boardVO ["+" title=" + title + ", memid="+ memid 
 				+ ", contents=" + contents + ", status="+status+", category"+category
 				+"]";
 	}

@@ -22,7 +22,7 @@ public class boardDAO {
 	public void addData(boardVO vo) {
 		sb.setLength(0);
 		sb.append("insert into bqna ");
-		sb.append("values (b_qna_seq.nextval, ?, ?, sysdate, 0, ?, 0, ? ) ");
+		sb.append("values (b_qna_seq.nextval, ?, ?, sysdate, ?, 0, ? ) ");
 		
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
@@ -44,7 +44,7 @@ public class boardDAO {
 		
 		sb.setLength(0);
 		sb.append("select * ");
-		sb.append("from (select rownum rn, bno, title, contents, dates, hits, memid, category, status ");
+		sb.append("from (select rownum rn, bno, title, contents, dates, memid, category, status ");
 		sb.append("from (select * from bqna ");
 		sb.append("order by bno desc ) ");
 		sb.append("where rownum <= ? ) ");
@@ -62,9 +62,9 @@ public class boardDAO {
 				String title = rs.getString(3);
 				String contents = rs.getString(4);
 				String dates = rs.getString(5);
-				int hits = rs.getInt(6);
-				String memid = rs.getString(7);
-				String category = rs.getString(8);
+				String memid = rs.getString(6);
+				String category = rs.getString(7);
+				int status = rs.getInt("status");
 				
 				boardVO vo = new boardVO();
 				vo.setBno(bno);
@@ -72,8 +72,8 @@ public class boardDAO {
 				vo.setContents(contents);
 				vo.setCategory(category);
 				vo.setDates(dates);
-				vo.setHits(hits);
 				vo.setMemid(memid);
+				vo.setStatus(status);
 				list.add(vo);
 				
 			}
@@ -110,7 +110,7 @@ public class boardDAO {
 		sb.append("where bno = ? ");
 		
 		boardVO vo = null;
-//	title, writer, contents, date(sysdate), hits(0), category, pId, status(0)
+//	title, writer, contents, date(sysdate), category, pId, status(0)
 		
 		try {
 			pstmt=conn.prepareStatement(sb.toString());
@@ -122,12 +122,11 @@ public class boardDAO {
 			String title = rs.getString(2);
 			String contents = rs.getString(3);
 			String dates = rs.getString(4);
-			int hits = rs.getInt(5);
-			String category = rs.getString(6);
-			int status = rs.getInt(7);
-			String memid = rs.getString(8);
+			String category = rs.getString(5);
+			int status = rs.getInt(6);
+			String memid = rs.getString(7);
 			
-			vo = new boardVO(bno, hits, status, title, memid, contents, dates, category);
+			vo = new boardVO(bno, status, title, memid, contents, dates, category);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -172,23 +171,6 @@ public class boardDAO {
 		}
 	}
 	
-	public void raiseHits(int bno) {
-		sb.setLength(0);
-		sb.append("update bqna ");
-		sb.append("set hits = hits+1 ");
-		sb.append("where bno = ? ");
-		
-		try {
-			pstmt = conn.prepareStatement(sb.toString());
-			pstmt.setInt(1, bno);
-			
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	public void blindData(int bno) {
 		sb.setLength(0);
 		sb.append("update bqna ");
@@ -205,6 +187,28 @@ public class boardDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void name() {
+		
+	}
+	
+	public void addComm(int bno) {
+		sb.setLength(0);
+		sb.append("update bqna ");
+		sb.append("set status = 2 ");
+		sb.append("where bno = ? ");
+		
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, bno);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }
 
 

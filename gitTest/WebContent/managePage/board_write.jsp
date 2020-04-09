@@ -37,9 +37,6 @@
 					</select>
 				</p>
 			</div>
-			<div id="pId">
-				<p><span>상품번호: </span> <input type="text" name="pid" id="pid" /></p>
-			</div>
 			<div id="title">
 				<p>
 					<span>제목: </span> <input type="text" name="ti" id="ti" />

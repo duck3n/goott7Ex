@@ -79,12 +79,12 @@
 			<th class="col3">제목</th>
 			<th class="col4">작성자</th>
 			<th class="col5">날짜</th>
-			<th class="col6">조회수</th>
+			<th class="col6">답변 유무</th>
 		</tr>
 		<%
 			ArrayList<boardVO> list = dao.getAllData(startNo, endNo);
 			for(boardVO vo : list){
-				if(vo.getStatus()==0){
+				if(vo.getStatus()==0||vo.getStatus()==2){
 		%>
 		<tr>
 			<td class="col1"><%=vo.getBno() %></td>
@@ -92,7 +92,11 @@
 			<td class="col3"><a href="board_detail.jsp?bno=<%=vo.getBno() %>"><%=vo.getTitle() %></a></td>
 			<td class="col4"><%=vo.getMemid() %></td>
 			<td class="col5"><%=vo.getDates() %></td>
-			<td class="col6"><%=vo.getHits() %></td>
+			<% String checkre = "미응답";
+			if(vo.getStatus()==2)
+				checkre = "답변완료";
+			%>
+			<td class="col6"><%=checkre %></td> 
 		</tr>
 		<%
 				}
