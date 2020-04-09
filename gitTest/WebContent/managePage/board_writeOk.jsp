@@ -9,17 +9,15 @@
 	String title = request.getParameter("ti");
 	String contents = request.getParameter("ct");
 	String category = request.getParameter("ctg");
-	String id = "게시자";	// 임시
 	
 	boardVO vo = new boardVO();
 	boardDAO dao = new boardDAO();
 	
-	vo.setMemid(id);
 	vo.setTitle(title);
 	vo.setContents(contents);
 	vo.setCategory(category);
 	dao.addData(vo);
 	
-	response.sendRedirect("board_list.jsp"); 
+	response.sendRedirect("board_list.jsp");
 %>
 	

@@ -1,8 +1,8 @@
-<%@page import="VO.noticeVO"%>
-<%@page import="DAO.noticeDAO"%>
+<%@page import="VO.boardVO"%>
+<%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- notice_modifyOk.jsp -->
+<!-- board_modifyOk.jsp -->
 <%
 	String title = request.getParameter("title");
 	String contents = request.getParameter("contents");
@@ -12,18 +12,20 @@
 	/* out.println(title+contents+no+category); */
 	
 	if(no!=null){
-		int bno = Integer.parseInt(no); 
+		int bno = Integer.parseInt(no);
 		
-		noticeDAO dao = new noticeDAO();
-		noticeVO vo = new noticeVO();
-		
-		vo.setTitle(title); vo.setCategory(category);
-		vo.setContents(contents); vo.setBno(bno);
+		boardDAO dao = new boardDAO();
+		boardVO vo = new boardVO();
+		vo.setTitle(title);
+		vo.setCategory(category);
+		vo.setContents(contents);
+		vo.setBno(bno);
 		
 		dao.modifyData(vo);
-		response.sendRedirect("notice_list.jsp");
+		
+		response.sendRedirect("board_list.jsp");
 	}else {
-		response.sendRedirect("notice_list.jsp");
+		response.sendRedirect("board_list.jsp");
 	}
 	
 %>

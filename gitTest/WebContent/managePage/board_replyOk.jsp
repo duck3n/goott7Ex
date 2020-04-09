@@ -1,4 +1,3 @@
-<%@page import="VO.boardVO"%>
 <%@page import="DAO.boardDAO"%>
 <%@page import="VO.reqnaVO"%>
 <%@page import="DAO.reqnaDAO"%>
@@ -7,25 +6,25 @@
 <!-- board_replyOk.jsp -->
 <%
 	String b = request.getParameter("bno");
-	String id = "휴나";
 	String comments = request.getParameter("comm");
+	
+	//세션으로 가져와서 현재 아이디 삽입하기
+	String id = "휴나";
 	
 	if(b!=null){
 		int bno = Integer.parseInt(b);
 		out.println(bno+id+comments);
 		
 		reqnaDAO dao = new reqnaDAO();
-		reqnaVO vo = new reqnaVO(); 
-		
-		boardDAO bao = new boardDAO();
-		boardVO bvo = new boardVO();
+		reqnaVO vo = new reqnaVO();
 		
 		vo.setId(id); 
 		vo.setComments(comments);
 		vo.setRef(bno);
 		
 		dao.insComnts(vo);
-		bao.addComm(bno);
+		//댓글 상태 유무 변경
+		new boardDAO().addComm(bno); 
 		
 		response.sendRedirect("board_detail.jsp?bno="+bno);
 	}else {

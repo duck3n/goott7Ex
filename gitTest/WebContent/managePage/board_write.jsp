@@ -1,5 +1,3 @@
-<%@page import="VO.boardVO"%>
-<%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,10 +9,6 @@
 <body>
 	<%
 		
-		boardDAO dao = new boardDAO();
-		boardVO vo = new boardVO();
-		
-		String id = "본인ID"; // 임시
 	/* 	String userId=null;
 		if(session.getAttribute("userId")!=null){
 			userId=(String)session.getAttribute("userId");
@@ -28,7 +22,7 @@
 			</div>
 			<div id="writer">
 				<p>
-					<span>작성자: </span> <%=id %>
+					<span>작성자: </span><%-- <%=vo.getId() %> 아이디 나오는 부분 --%>
 				</p>
 			</div>
 			<div id="category">
@@ -36,7 +30,7 @@
 					<span>카테고리: </span>
 					<select name="ctg">
 						<option value="">카테고리</option>
-						<option value="배송">배송</option> 
+						<option value="배송">배송</option>
 						<option value="입금">입금</option>
 						<option value="교환">교환</option>
 						<option value="환불">환불</option>
@@ -54,7 +48,7 @@
 				</p>
 			</div>
 			<div id="button">
-				<a href="board_list.jsp"><input type="button" value="목록보기" /></a> <input type="submit" value="작성하기" />
+				<input type="button" value="목록보기" /> <input type="submit" value="작성하기" />
 				<input type="reset" value="초기화" />
 			</div>
 		</div>
