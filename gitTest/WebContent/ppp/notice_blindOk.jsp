@@ -13,4 +13,4 @@
 	}else{
 		response.sendRedirect("notice_list.jsp");
 	}
-%>
+%> 

@@ -12,7 +12,7 @@
 	/* out.println(title+contents+no+category); */
 	
 	if(no!=null){
-		int bno = Integer.parseInt(no);
+		int bno = Integer.parseInt(no); 
 		
 		noticeDAO dao = new noticeDAO();
 		noticeVO vo = new noticeVO();

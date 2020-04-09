@@ -15,7 +15,7 @@
 		out.println(bno+id+comments);
 		
 		reqnaDAO dao = new reqnaDAO();
-		reqnaVO vo = new reqnaVO();
+		reqnaVO vo = new reqnaVO(); 
 		
 		boardDAO bao = new boardDAO();
 		boardVO bvo = new boardVO();

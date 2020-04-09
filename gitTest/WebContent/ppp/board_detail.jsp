@@ -12,7 +12,7 @@
 	boardVO vo = new boardVO();
 	
 	// 댓글 table
-	reqnaDAO rdao = new reqnaDAO();
+	reqnaDAO rdao = new reqnaDAO(); 
 	reqnaVO rvo = new reqnaVO();
 	
 	int bno = 0;

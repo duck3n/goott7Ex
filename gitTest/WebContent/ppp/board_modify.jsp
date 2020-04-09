@@ -60,7 +60,7 @@
 					<option value="">카테고리</option>
 					<option value="배송">배송</option>
 					<option value="입금">입금</option>
-					<option value="교환">교환</option>
+					<option value="교환">교환</option> 
 					<option value="환불">환불</option>
 				</select></td>
 				<th id="t2">제목</th>

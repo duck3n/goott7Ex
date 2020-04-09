@@ -36,7 +36,7 @@
 					<span>카테고리: </span>
 					<select name="ctg">
 						<option value="">카테고리</option>
-						<option value="배송">배송</option>
+						<option value="배송">배송</option> 
 						<option value="입금">입금</option>
 						<option value="교환">교환</option>
 						<option value="환불">환불</option>

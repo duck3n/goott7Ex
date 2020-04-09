@@ -10,7 +10,7 @@
 		int bno = Integer.parseInt(b);
 		boardDAO dao = new boardDAO();
 		dao.deleteData(bno);
-		response.sendRedirect("board_list.jsp");
+		response.sendRedirect("board_list.jsp"); 
 	}else {
 		response.sendRedirect("board_list.jsp");
 	}

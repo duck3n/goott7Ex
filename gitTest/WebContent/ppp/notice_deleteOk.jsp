@@ -11,7 +11,7 @@
 		
 		noticeDAO dao = new noticeDAO();
 		dao.deleteData(bno);
-		
+		 
 		response.sendRedirect("notice_list.jsp");
 		
 	}else {

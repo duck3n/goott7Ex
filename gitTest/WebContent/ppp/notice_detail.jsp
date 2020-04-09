@@ -16,7 +16,7 @@
 	}else {
 		response.sendRedirect("notice_list.jsp");
 	}
-%>
+%> 
 <!DOCTYPE html>
 <html>
 <head>

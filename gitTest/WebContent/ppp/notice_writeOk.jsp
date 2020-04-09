@@ -1,4 +1,4 @@
-<%@page import="VO.noticeVO"%>
+ <%@page import="VO.noticeVO"%>
 <%@page import="DAO.noticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

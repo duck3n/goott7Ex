@@ -12,7 +12,7 @@
 		//로긴한사람이라면, userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
 /*
 		String adminId = null;
-		if (session.getAttribute("adminId") != null) {
+		if (session.getAttribute("adminId") != null) { 
 			adminId = (String) session.getAttribute("adminId");
 		}
 		*/

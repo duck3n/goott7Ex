@@ -13,7 +13,7 @@
 	
 	if(no!=null){
 		int bno = Integer.parseInt(no);
-		
+		 
 		boardDAO dao = new boardDAO();
 		boardVO vo = new boardVO();
 		vo.setTitle(title);

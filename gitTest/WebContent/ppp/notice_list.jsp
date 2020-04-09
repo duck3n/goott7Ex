@@ -18,7 +18,7 @@
 	}
 
 	noticeDAO dao = new noticeDAO();
-
+ 
 	// 총 게시글 수 
 	int totalCount = dao.getTotalCount();
 

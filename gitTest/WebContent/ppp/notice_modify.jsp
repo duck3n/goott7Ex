@@ -15,7 +15,7 @@
 	}
 %>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <title>notice_modify.jsp -> 공지사항 수정</title>

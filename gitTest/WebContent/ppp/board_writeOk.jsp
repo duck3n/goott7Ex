@@ -20,6 +20,6 @@
 	vo.setCategory(category);
 	dao.addData(vo);
 	
-	response.sendRedirect("board_list.jsp");
+	response.sendRedirect("board_list.jsp"); 
 %>
 	

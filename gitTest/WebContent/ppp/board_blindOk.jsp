@@ -8,7 +8,7 @@
 	if(b!=null){
 		int bno = Integer.parseInt(b);
 		boardDAO dao = new boardDAO();
-		dao.blindData(bno);
+		dao.blindData(bno); 
 		response.sendRedirect("board_list.jsp");
 	}else{
 		response.sendRedirect("board_list.jsp");
