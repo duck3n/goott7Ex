@@ -1,7 +1,7 @@
 <%@page import="VO.reqnaVO"%>
 <%@page import="DAO.reqnaDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="VO.boardVO"%>
+<%@page import="VO.BoardVO"%>
 <%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@
 	String no = request.getParameter("bno");
 	// 게시글 table
 	boardDAO dao = new boardDAO();
-	boardVO vo = new boardVO();
+	BoardVO vo = new BoardVO();
 	
 	// 댓글 table
 	reqnaDAO rdao = new reqnaDAO(); 

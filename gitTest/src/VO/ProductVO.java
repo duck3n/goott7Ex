@@ -3,81 +3,222 @@ package VO;
 public class ProductVO {
 
 	// DB와 동일한 변수 선언
-	private String pno;
+	private int pno1;
 	private String pbrend;
 	private String pname;
-	private String pdesc;
-	private String qty;
+	private String prodesc;
+	private int qty;
 	private String pcat;
-	private int imgfile;
+	private String imgfile;
+
 	
-	public ProductVO() {}
 	
-	public ProductVO(String pno, String pbrend, String pname, String pdesc, String qty, String pcat, int imgfile) {
+	
+	private int pno2;
+	private String psite;
+	private int pprice;
+	private String plogo;
+	private int pback;
+	
+	
+	
+	
+	public ProductVO() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+	public ProductVO(int pno1, String pbrend, String pname, String prodesc, int qty, String pcat, String imgfile, 
+			int pno2, String psite, int pprice, String plogo, int pback) 
+	{
 		super();
-		this.pno = pno;
+		this.pno1 = pno1;
 		this.pbrend = pbrend;
 		this.pname = pname;
-		this.pdesc = pdesc;
+		this.prodesc = prodesc;
 		this.qty = qty;
 		this.pcat = pcat;
 		this.imgfile = imgfile;
+		this.pno2 = pno2;
+		this.psite = psite;
+		this.pprice = pprice;
+		this.plogo = plogo;
+		this.pback = pback;
 	}
 
-	public String getPno() {
-		return pno;
+
+
+
+	public int getPno1() {
+		return pno1;
 	}
 
-	public void setPno(String pno) {
-		this.pno = pno;
+
+
+
+	public void setPno1(int pno1) {
+		this.pno1 = pno1;
 	}
+
+
+
 
 	public String getPbrend() {
 		return pbrend;
 	}
 
+
+
+
 	public void setPbrend(String pbrend) {
 		this.pbrend = pbrend;
 	}
+
+
+
 
 	public String getPname() {
 		return pname;
 	}
 
+
+
+
 	public void setPname(String pname) {
 		this.pname = pname;
 	}
 
-	public String getPdesc() {
-		return pdesc;
+
+
+
+	public String getProdesc() {
+		return prodesc;
 	}
 
-	public void setPdesc(String pdesc) {
-		this.pdesc = pdesc;
+
+
+
+	public void setProdesc(String prodesc) {
+		this.prodesc = prodesc;
 	}
 
-	public String getQty() {
+
+
+
+	public int getQty() {
 		return qty;
 	}
 
-	public void setQty(String qty) {
+
+
+
+	public void setQty(int qty) {
 		this.qty = qty;
 	}
+
+
+
 
 	public String getPcat() {
 		return pcat;
 	}
 
+
+
+
 	public void setPcat(String pcat) {
 		this.pcat = pcat;
 	}
 
-	public int getImgfile() {
+
+
+
+	public String getImgfile() {
 		return imgfile;
 	}
 
-	public void setImgfile(int imgfile) {
+
+
+
+	public void setImgfile(String imgfile) {
 		this.imgfile = imgfile;
 	}
+
+
+	public int getPno2() {
+		return pno2;
+	}
+
+
+
+
+	public void setPno2(int pno2) {
+		this.pno2 = pno2;
+	}
+
+
+
+
+	public String getPsite() {
+		return psite;
+	}
+
+
+
+
+	public void setPsite(String psite) {
+		this.psite = psite;
+	}
+
+
+
+
+	public int getPprice() {
+		return pprice;
+	}
+
+
+
+
+	public void setPprice(int pprice) {
+		this.pprice = pprice;
+	}
+
+
+
+
+	public String getPlogo() {
+		return plogo;
+	}
+
+
+
+
+	public void setPlogo(String plogo) {
+		this.plogo = plogo;
+	}
+
+
+
+
+	public int getPback() {
+		return pback;
+	}
+
+
+
+
+	public void setPback(int pback) {
+		this.pback = pback;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }

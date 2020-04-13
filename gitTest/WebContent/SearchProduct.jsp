@@ -1,6 +1,6 @@
-<%@page import="vo.ProductVO"%>
+<%@page import="VO.ProductVO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.ProductSearchDAO"%>
+<%@page import="DAO.ProductSearchDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="../css/ProductSearchLayout.css" />
