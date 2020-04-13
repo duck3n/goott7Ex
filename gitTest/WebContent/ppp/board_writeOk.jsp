@@ -1,5 +1,5 @@
 <%@page import="DAO.boardDAO"%>
-<%@page import="VO.BoardVO"%>
+<%@page import="VO.boardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- board_writeOk.jsp -->
@@ -11,7 +11,7 @@
 	String category = request.getParameter("ctg");
 	String id = "게시자";	// 임시
 	
-	BoardVO vo = new BoardVO();
+	boardVO vo = new boardVO();
 	boardDAO dao = new boardDAO();
 	
 	vo.setMemid(id);

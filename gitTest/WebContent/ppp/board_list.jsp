@@ -1,4 +1,4 @@
-<%@page import="VO.BoardVO"%>
+<%@page import="VO.boardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -64,9 +64,9 @@
 				<th class="col6">답변유무</th>
 			</tr>
 			<%
-				ArrayList<BoardVO> list = dao.getAllData(startNo, endNo);
-					for(BoardVO vo : list){
-						if(vo.getStatus()==0 || vo.getStatus()==2){
+				ArrayList<boardVO> list = dao.getAllData(startNo, endNo);
+						for(boardVO vo : list){
+							if(vo.getStatus()==0 || vo.getStatus()==2){
 			%>
 			<tr class="col">
 				<td class="col1"><%=vo.getBno() %></td>

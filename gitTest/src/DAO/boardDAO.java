@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import VO.BoardVO;
+import VO.boardVO;
 import connection.OracleXEConnection;
 
 public class boardDAO {
@@ -19,7 +19,7 @@ public class boardDAO {
 		conn = OracleXEConnection.getInstance().getConnection();
 	}
 	
-	public void addData(BoardVO vo) {
+	public void addData(boardVO vo) {
 		sb.setLength(0);
 		sb.append("insert into bqna ");
 		sb.append("values (b_qna_seq.nextval, ?, ?, sysdate, ?, 0, ? ) ");
@@ -39,8 +39,8 @@ public class boardDAO {
 		}
 	}// addData()end
 	
-	public ArrayList<BoardVO> getAllData(int startNo, int endNo){
-		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+	public ArrayList<boardVO> getAllData(int startNo, int endNo){
+		ArrayList<boardVO> list = new ArrayList<boardVO>();
 		
 		sb.setLength(0);
 		sb.append("select * ");
@@ -70,7 +70,7 @@ public class boardDAO {
 //				boardVO vo = new boardVO(bno, hits, status, title, memid, contents, dates, pId, category);
 //				list.add(vo);
 				
-				BoardVO vo = new BoardVO();
+				boardVO vo = new boardVO();
 				vo.setBno(bno);
 				vo.setTitle(title);
 				vo.setContents(contents);
@@ -108,12 +108,12 @@ public class boardDAO {
 		return cnt;
 	}
 	
-	public BoardVO getData(int bno) {
+	public boardVO getData(int bno) {
 		sb.setLength(0);
 		sb.append("select * from bqna ");
 		sb.append("where bno = ? ");
 		
-		BoardVO vo = null;
+		boardVO vo = null;
 //	title, writer, contents, date(sysdate), hits(0), category, pId, status(0)
 		
 		try {
@@ -130,7 +130,7 @@ public class boardDAO {
 			int status = rs.getInt(6);
 			String memid = rs.getString(7);
 			
-			vo = new BoardVO(bno, status, title, memid, contents, dates, category);
+			vo = new boardVO(bno, status, title, memid, contents, dates, category);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -139,7 +139,7 @@ public class boardDAO {
 		return vo;
 	}
 	
-	public void modifyData(BoardVO vo) {
+	public void modifyData(boardVO vo) {
 		sb.setLength(0);
 		sb.append("update bqna ");
 		sb.append("set title = ?, contents = ?, category = ? ");

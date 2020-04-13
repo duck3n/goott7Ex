@@ -1,4 +1,4 @@
-<%@page import="VO.BoardVO"%>
+<%@page import="VO.boardVO"%>
 <%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
 		int bno = Integer.parseInt(no);
 		 
 		boardDAO dao = new boardDAO();
-		BoardVO vo = new BoardVO();
+		boardVO vo = new boardVO();
 		vo.setTitle(title);
 		vo.setCategory(category);
 		vo.setContents(contents);
