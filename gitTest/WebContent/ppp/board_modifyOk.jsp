@@ -1,4 +1,4 @@
-<%@page import="VO.boardVO"%>
+<%@page import="VO.BoardVO"%>
 <%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
 		int bno = Integer.parseInt(no);
 		 
 		boardDAO dao = new boardDAO();
-		boardVO vo = new boardVO();
+		BoardVO vo = new BoardVO();
 		vo.setTitle(title);
 		vo.setCategory(category);
 		vo.setContents(contents);
@@ -27,5 +27,4 @@
 	}else {
 		response.sendRedirect("board_list.jsp");
 	}
-	
 %>

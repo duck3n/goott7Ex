@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import VO.ProductVO;
 import connection.OracleXEConnection;
-import vo.ProductVO;
 
 public class ProductSearchDAO {
 
@@ -28,7 +28,7 @@ public class ProductSearchDAO {
 		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 		
 		String sql =
-				"select pro.pno, pro.pbrend, pro.pname, pro.prodesc, pro.qty, pro.pcat, pro.imgfile, pro.imgfile2, pro.imgfile3, pro.imgfile4"
+				"select pro.pno, pro.pbrend, pro.pname, pro.prodesc, pro.qty, pro.pcat, pro.imgfile, "
 				+
 				"price.pno, price.psite, price.pprice, price.plogo, price.pback "
 				+
@@ -47,24 +47,21 @@ public class ProductSearchDAO {
 
 				while (rs.next()) {
 					
-					String pno1 = rs.getString("pno1");
+					int pno1 = rs.getInt("pno1");
 					String pbrend = rs.getString("pbrend");
 					String pname = rs.getString("pname");
 					String prodesc = rs.getString("prodesc");
 					int qty = rs.getInt("qty");
 					String pcat = rs.getString("pcat");
-					String imgfile = rs.getString("imgfile");
-					String imgfile2 = rs.getString("imgfile2");
-					String imgfile3 = rs.getString("imgfile3");
-					String imgfile4 = rs.getString("imgfile4");
-					String pno2 = rs.getString("pno2");
+					String imgfile = rs.getString("imgfile");;
+					int pno2 = rs.getInt("pno2");
 					String psite = rs.getString("psite");
-					String pprice = rs.getString("pprice");
+					int pprice = rs.getInt("pprice");
 					String plogo = rs.getString("plogo");
-					String pback = rs.getString("pback");
+					int pback = rs.getInt("pback");
 			
 
-					ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
+					ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, pno2, psite, pprice, plogo, pback);
 							
 					list.add(vo);
 
@@ -105,29 +102,26 @@ public class ProductSearchDAO {
 					System.out.println(sql);
 
 					rs = pstmt.executeQuery();
-
 					while (rs.next()) {
 						
-						String pno1 = rs.getString("pno1");
+						int pno1 = rs.getInt("pno1");
 						String pbrend = rs.getString("pbrend");
-						String pname= rs.getString("pname");
+						String pname = rs.getString("pname");
 						String prodesc = rs.getString("prodesc");
 						int qty = rs.getInt("qty");
 						String pcat = rs.getString("pcat");
-						String imgfile = rs.getString("imgfile");
-						String imgfile2 = rs.getString("imgile2");
-						String imgfile3 = rs.getString("imgfile3");
-						String imgfile4 = rs.getString("imgfile4");
-						String pno2 = rs.getString("pno2");
+						String imgfile = rs.getString("imgfile");;
+						int pno2 = rs.getInt("pno2");
 						String psite = rs.getString("psite");
-						String pprice = rs.getString("pprice");
+						int pprice = rs.getInt("pprice");
 						String plogo = rs.getString("plogo");
-						String pback = rs.getString("pback");
+						int pback = rs.getInt("pback");
 				
 
-						ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
+						ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, pno2, psite, pprice, plogo, pback);
 								
 						list.add(vo);
+
 
 					}
 
@@ -164,30 +158,26 @@ public class ProductSearchDAO {
 						System.out.println(sql);
 
 						rs = pstmt.executeQuery();
-
 						while (rs.next()) {
 							
-							String pno1 = rs.getString("pno1");
+							int pno1 = rs.getInt("pno1");
 							String pbrend = rs.getString("pbrend");
-							String pname= rs.getString("pname");
+							String pname = rs.getString("pname");
 							String prodesc = rs.getString("prodesc");
 							int qty = rs.getInt("qty");
 							String pcat = rs.getString("pcat");
-							String imgfile = rs.getString("imgfile");
-							String imgfile2 = rs.getString("imgile2");
-							String imgfile3 = rs.getString("imgfile3");
-							String imgfile4 = rs.getString("imgfile4");
-							String pno2 = rs.getString("pno2");
+							String imgfile = rs.getString("imgfile");;
+							int pno2 = rs.getInt("pno2");
 							String psite = rs.getString("psite");
-							String pprice = rs.getString("pprice");
+							int pprice = rs.getInt("pprice");
 							String plogo = rs.getString("plogo");
-							String pback = rs.getString("pback");
+							int pback = rs.getInt("pback");
 					
 
-							ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
-										
-							
+							ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, pno2, psite, pprice, plogo, pback);
+									
 							list.add(vo);
+
 
 						}
 

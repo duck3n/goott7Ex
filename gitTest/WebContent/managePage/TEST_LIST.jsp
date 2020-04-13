@@ -1,4 +1,4 @@
-<%@page import="VO.boardVO"%>
+<%@page import="VO.BoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -25,7 +25,7 @@
 
 	// 총 페이지 수
 	int totalPage = // (totalCount%recordByPage==0) -> 10단위로 나눠지면. 삼항 연산자
-			(totalCount % recordByPage == 0) ? totalCount / recordByPage : totalCount / recordByPage + 1;
+	(totalCount % recordByPage == 0) ? totalCount / recordByPage : totalCount / recordByPage + 1;
 
 	// 현재 페이지 - 레코드 시작번호
 	int startNo = (currentPage - 1) * recordByPage + 1;
@@ -66,8 +66,8 @@
 	<div class="guide" id="body_container">
 	<%-- 몸통 부분 --%>
 		<%
-			ArrayList<boardVO> list = dao.getAllData(startNo, endNo);
-			for(boardVO vo : list){
+			ArrayList<BoardVO> list = dao.getAllData(startNo, endNo);
+			for(BoardVO vo : list){
 				if(vo.getStatus()==0){
 		%>
 

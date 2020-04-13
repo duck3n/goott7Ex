@@ -1,4 +1,4 @@
-<%@page import="VO.boardVO"%>
+<%@page import="VO.BoardVO"%>
 <%@page import="DAO.boardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -10,16 +10,15 @@
 </head>
 <body>
 	<%
-		
 		boardDAO dao = new boardDAO();
-		boardVO vo = new boardVO();
-		
-		String id = "본인ID"; // 임시
-	/* 	String userId=null;
-		if(session.getAttribute("userId")!=null){
-			userId=(String)session.getAttribute("userId");
-		}
-	 */	
+			BoardVO vo = new BoardVO();
+			
+			String id = "본인ID"; // 임시
+		/* 	String userId=null;
+			if(session.getAttribute("userId")!=null){
+		userId=(String)session.getAttribute("userId");
+			}
+		 */
 	%>
 	<form action="board_writeOk.jsp" name="frm">
 		<div id="container">

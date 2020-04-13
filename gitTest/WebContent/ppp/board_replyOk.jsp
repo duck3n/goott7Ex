@@ -1,4 +1,4 @@
-<%@page import="VO.boardVO"%>
+<%@page import="VO.BoardVO"%>
 <%@page import="DAO.boardDAO"%>
 <%@page import="VO.reqnaVO"%>
 <%@page import="DAO.reqnaDAO"%>
@@ -18,7 +18,7 @@
 		reqnaVO vo = new reqnaVO(); 
 		
 		boardDAO bao = new boardDAO();
-		boardVO bvo = new boardVO();
+		BoardVO bvo = new BoardVO();
 		
 		vo.setId(id); 
 		vo.setComments(comments);

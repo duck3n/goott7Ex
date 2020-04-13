@@ -1,13 +1,13 @@
 package main;
 
 import DAO.boardDAO;
-import VO.boardVO;
+import VO.BoardVO;
 
 public class boardMain {
 	public static void main(String[] args) {
 		boardDAO dao = new boardDAO();
 		
-		boardVO vo = new boardVO();
+		BoardVO vo = new BoardVO();
 		
 		//dao.addData(vo);
 		

@@ -12,5 +12,5 @@
 		response.sendRedirect("board_list.jsp");
 	}else{
 		response.sendRedirect("board_list.jsp");
-	}
+	} 
 %>
