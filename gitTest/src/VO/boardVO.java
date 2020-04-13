@@ -1,14 +1,14 @@
 package VO;
 
 
-public class BoardVO {
+public class boardVO {
 	private int bno, status;
 	private String title, memid, contents, category;
 	String dates;
 	
-	public BoardVO() {}
+	public boardVO() {}
 
-	public BoardVO(int bno, int status, String title, String memid, String contents, String dates2, String category) {
+	public boardVO(int bno, int status, String title, String memid, String contents, String dates2, String category) {
 		super();
 		this.bno = bno;
 		this.status = status;

@@ -1,5 +1,5 @@
 <%@page import="DAO.boardDAO"%>
-<%@page import="VO.BoardVO"%>
+<%@page import="VO.boardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- board_writeOk.jsp -->
@@ -10,7 +10,7 @@
 	String contents = request.getParameter("ct");
 	String category = request.getParameter("ctg");
 	
-	BoardVO vo = new BoardVO();
+	boardVO vo = new boardVO();
 	boardDAO dao = new boardDAO();
 	
 	vo.setTitle(title);
