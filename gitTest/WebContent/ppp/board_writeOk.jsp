@@ -9,7 +9,7 @@
 	String title = request.getParameter("ti");
 	String contents = request.getParameter("ct");
 	String category = request.getParameter("ctg");
-	String id = "게시자";	// 임시
+	String id = "작성자2";	// 임시
 	
 	boardVO vo = new boardVO();
 	boardDAO dao = new boardDAO();

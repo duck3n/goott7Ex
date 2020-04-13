@@ -41,6 +41,18 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 / 이벤트</title>
+<style type="text/css">
+	#container {
+		/* 테이블 가운데로 옮기기 */
+		margin: auto;
+		width: 50%;
+		padding: 10px;
+		
+	}
+	.btn{
+		text-align: right;
+	}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
  	$(document).ready(function() {
@@ -51,56 +63,64 @@
 </script>
 </head>
 <body>
-	<table>
-		<tr>
-			<th class="col1">글번호</th>
-			<th class="col2">제목</th>
-			<th class="col3">작성자</th>
-			<th class="col4">날짜</th>
-			<th class="col5">조회수</th>
-		</tr>
-		<!-- 사용자가 작성한 게시글을 전부 출력해보세요 -->
-		<%
-			ArrayList<noticeVO> list = dao.getAllData(startNo, endNo);
-				
-			for(noticeVO vo : list){
-				if(vo.getStatus()==0 || vo.getStatus()==2){
+	<div id="container">
+		<div id="title">
+			<h3>공지사항 / 이벤트</h3>
+		</div>
+		<table>
+			<tr>
+				<!-- <th class="col1">글번호</th> 글번호 지움 -> 캐치패션이랑 최대한 비슷하게 할려고요. -->
+				<th class="col2">제목</th>
+				<th colspan="2" class="col3"><!-- 작성자 --></th>
+				<th class="col4">날짜</th>
+				<!-- <th class="col5">조회수</th> 조회수도요 -->
+			</tr>
+			<!-- 사용자가 작성한 게시글을 전부 출력해보세요 -->
+			<%
+				ArrayList<noticeVO> list = dao.getAllData(startNo, endNo);
+
+				for (noticeVO vo : list) {
+					if (vo.getStatus() == 0 || vo.getStatus() == 2) {
 			%>
 
-		<tr>
-			<td class="col1"><%=vo.getBno() %></td>
-			<td class="col2"><a href="notice_detail.jsp?bno=<%=vo.getBno() %>"><%=vo.getTitle() %></a>
-			</td>
-			<td class="col3"><%=vo.getWriter() %></td>
-			<td class="col4"><%=vo.getRegdate() %></td>
-			<td class="col5"><%=vo.getHits() %></td>
-			
-		</tr>
-		<%
+			<tr>
+				<%-- <td class="col1"><%=vo.getBno()%></td> --%>
+				<td class="col2"><a
+					href="notice_detail.jsp?bno=<%=vo.getBno()%>"><%=vo.getTitle()%></a>
+				</td>
+				<td colspan="2" class="col3"><%-- <%=vo.getWriter()%> --%></td>
+				<td class="col4"><%=vo.getRegdate()%></td>
+				<%-- <td class="col5"><%=vo.getHits()%></td> --%>
+
+			</tr>
+			<%
 				}
-			}
-		%>
-		<tr>
-			<td colspan="4" id="page">
-				<%
-					for(int i=currentPage-3; i<totalPage+3; i++){
-						if(i<=0){
+				}
+			%>
+			<tr>
+				<td colspan="4" id="page">
+					<%
+						for (int i = currentPage - 3; i < totalPage + 3; i++) {
+							if (i <= 0) {
 								continue;
-						}else if(i>totalPage){
+							} else if (i > totalPage) {
 								break;
-						}else {
-				%> <a href="notice_list.jsp?cp=<%=i %>"><span id="page"><%=i %></span></a>
-				<%
-							}// if end
-					}// for end
-				%>
-			</td>
-		</tr>
+							} else {
+					%> <a href="notice_list.jsp?cp=<%=i%>"><span id="page"><%=i%></span></a>
+					<%
+						} // if end
+						} // for end
+					%>
+				</td>
+			</tr>
 
-		<tr>  <!-- 등록 버튼은 admin만 보일 수 있게 하기 -->
-			<td colspan="4" class="btn"><a href="notice_write.jsp"><input type="button" value="등록" /></a></td>
-		</tr>
+			<tr>
+				<!-- 등록 버튼은 admin만 보일 수 있게 하기 -->
+				<td colspan="4" class="btn"><a href="notice_write.jsp"><input
+						type="button" value="등록" /></a></td>
+			</tr>
 
-	</table>
+		</table>
+	</div>
 </body>
 </html>

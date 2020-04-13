@@ -39,6 +39,12 @@
 <meta charset="UTF-8">
 <title>문의사항 게시판</title>
 <style type="text/css">
+	.blist{
+		/* 테이블 가운데로 옮기기 */
+		margin: auto;
+		width: 100%;
+		padding: 10px
+	}
 	.col{
 		text-align: center;
 	}
@@ -54,6 +60,7 @@
 </head>
 <body> 
 	<div class="blist">
+		<h3>문의사항</h3>
 		<table>
 			<tr class="col">
 				<th class="col1">글번호</th>
@@ -85,7 +92,7 @@
 				}
 			%>
 			<tr>
-				<td colspan="4" id="page">
+				<td colspan="6" id="page">
 					<%
 						for(int i=currentPage-3; i<totalPage+3; i++){
 							if(i<=0){
@@ -102,7 +109,7 @@
 			</tr>
 			
 			<tr>
-				<td colspan="4" class="btn"><a href="board_write.jsp"><input type="button" value="등록하기" /></a></td>
+				<td colspan="6" class="btn" align="right"><a href="board_write.jsp"><input type="button" value="등록하기" /></a></td>
 			</tr>
 		</table>
 	</div>
