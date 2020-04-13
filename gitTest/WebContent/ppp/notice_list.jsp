@@ -52,13 +52,16 @@
 	.btn{
 		text-align: right;
 	}
+	#title{
+		border-bottom: 1px solid gray;
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
  	$(document).ready(function() {
 		
-		$("tr:first").css("background-color", "pink");
-		$("tr:last").css("background-color", "#DAD9FF");
+		/* $("tr:first").css("background-color", "pink");
+		$("tr:last").css("background-color", "#DAD9FF"); */
 	});
 </script>
 </head>
