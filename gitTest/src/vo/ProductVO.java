@@ -3,14 +3,28 @@ package vo;
 public class ProductVO {
 
 	// DB와 동일한 변수 선언
-	private String pid;
-	private String pname;
-	private int pprice;
-	private String pdesc;
-	private String manuf;
-	private int pstock;
-	private String pimage;
-	private String pcat;
+		
+		// product TABLE
+		private String pno1;
+		private String pbrend;
+		private String pname;
+		private String prodesc;
+		private int qty;
+		private String pcat;
+		private String imgfile;
+		private String imgfile2;
+		private String imgfile3;
+		private String imgfile4;
+	
+		
+		// pricing TABLE
+		private String pno2;
+		private String psite;
+		private String pprice;
+		private String plogo;
+		private String pback;
+		
+		
 	
 	// 생성자 generate
 	public ProductVO() {
@@ -19,29 +33,45 @@ public class ProductVO {
 	
 	
 	// 생성자 overloading
-	public ProductVO(String pid, String pname, int pprice, String pdesc, String manuf, int pstock, String pimage,
-			String pcat) {
+	public ProductVO(String pno1, String pbrend, String pname, String prodesc, int qty, String pcat, String imgfile,
+			String imgfile2, String imgfile3, String imgfile4, String pno2, String psite, String pprice, String plogo,
+			String pback) {
 		super();
-		this.pid = pid;
+		this.pno1 = pno1;
+		this.pbrend = pbrend;
 		this.pname = pname;
-		this.pprice = pprice;
-		this.pdesc = pdesc;
-		this.manuf = manuf;
-		this.pstock = pstock;
-		this.pimage = pimage;
+		this.prodesc = prodesc;
+		this.qty = qty;
 		this.pcat = pcat;
+		this.imgfile = imgfile;
+		this.imgfile2 = imgfile2;
+		this.imgfile3 = imgfile3;
+		this.imgfile4 = imgfile4;
+		this.pno2 = pno2;
+		this.psite = psite;
+		this.pprice = pprice;
+		this.plogo = plogo;
+		this.pback = pback;
 	}
 
-	
-	
-	// get/set
-	public String getPid() {
-		return pid;
+
+	public String getPno1() {
+		return pno1;
 	}
 
 
-	public void setPid(String pid) {
-		this.pid = pid;
+	public void setPno1(String pno1) {
+		this.pno1 = pno1;
+	}
+
+
+	public String getPbrend() {
+		return pbrend;
+	}
+
+
+	public void setPbrend(String pbrend) {
+		this.pbrend = pbrend;
 	}
 
 
@@ -55,53 +85,23 @@ public class ProductVO {
 	}
 
 
-	public int getPprice() {
-		return pprice;
+	public String getProdesc() {
+		return prodesc;
 	}
 
 
-	public void setPprice(int pprice) {
-		this.pprice = pprice;
+	public void setProdesc(String prodesc) {
+		this.prodesc = prodesc;
 	}
 
 
-	public String getPdesc() {
-		return pdesc;
+	public int getQty() {
+		return qty;
 	}
 
 
-	public void setPdesc(String pdesc) {
-		this.pdesc = pdesc;
-	}
-
-
-	public String getManuf() {
-		return manuf;
-	}
-
-
-	public void setManuf(String manuf) {
-		this.manuf = manuf;
-	}
-
-
-	public int getPstock() {
-		return pstock;
-	}
-
-
-	public void setPstock(int pstock) {
-		this.pstock = pstock;
-	}
-
-
-	public String getPimage() {
-		return pimage;
-	}
-
-
-	public void setPimage(String pimage) {
-		this.pimage = pimage;
+	public void setQty(int qty) {
+		this.qty = qty;
 	}
 
 
@@ -113,6 +113,99 @@ public class ProductVO {
 	public void setPcat(String pcat) {
 		this.pcat = pcat;
 	}
+
+
+	public String getImgfile() {
+		return imgfile;
+	}
+
+
+	public void setImgfile(String imgfile) {
+		this.imgfile = imgfile;
+	}
+
+
+	public String getImgfile2() {
+		return imgfile2;
+	}
+
+
+	public void setImgfile2(String imgfile2) {
+		this.imgfile2 = imgfile2;
+	}
+
+
+	public String getImgfile3() {
+		return imgfile3;
+	}
+
+
+	public void setImgfile3(String imgfile3) {
+		this.imgfile3 = imgfile3;
+	}
+
+
+	public String getImgfile4() {
+		return imgfile4;
+	}
+
+
+	public void setImgfile4(String imgfile4) {
+		this.imgfile4 = imgfile4;
+	}
+
+
+	public String getPno2() {
+		return pno2;
+	}
+
+
+	public void setPno2(String pno2) {
+		this.pno2 = pno2;
+	}
+
+
+	public String getPsite() {
+		return psite;
+	}
+
+
+	public void setPsite(String psite) {
+		this.psite = psite;
+	}
+
+
+	public String getPprice() {
+		return pprice;
+	}
+
+
+	public void setPprice(String pprice) {
+		this.pprice = pprice;
+	}
+
+
+	public String getPlogo() {
+		return plogo;
+	}
+
+
+	public void setPlogo(String plogo) {
+		this.plogo = plogo;
+	}
+
+
+	public String getPback() {
+		return pback;
+	}
+
+
+	public void setPback(String pback) {
+		this.pback = pback;
+	}
+
+
+	
 	
 	
 	
