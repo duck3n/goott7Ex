@@ -17,7 +17,7 @@ public class won_reqnaDAO {
 		conn = OracleXEConnection.getInstance().getConnection();
 	}
 	// 댓글 입력 메소드
-	public void insComnts(reqnaVO vo) {
+	public void insComnts(won_reqnaVO vo) {
 		sb.setLength(0);
 		sb.append("insert into reqna ");
 		sb.append("values (reqna_seq.nextval, upper(?), upper(?), sysdate, ? ) ");
