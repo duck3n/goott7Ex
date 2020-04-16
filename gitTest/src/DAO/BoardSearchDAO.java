@@ -23,8 +23,8 @@ public class BoardSearchDAO {
 		conn = OracleXEConnection.getInstance().getConnection();
 	}
 
-	public ArrayList<boardVO> searchTitle(String x) {
-		ArrayList<boardVO> list = new ArrayList<boardVO>();
+	public ArrayList<won_boardVO> searchTitle(String x) {
+		ArrayList<won_boardVO> list = new ArrayList<won_boardVO>();
 
 		String sql = "select * from bqna " + "where title like upper('%" + x + "%') ";
 
@@ -41,10 +41,10 @@ public class BoardSearchDAO {
 				String title = rs.getString("title");
 				String memid = rs.getString("memid");
 				String contents = rs.getString("contents");
-				String dates = rs.getString("date");
+				String dates = rs.getString("dates");
 				String category = rs.getString("category");
 
-				boardVO vo = new boardVO(bno, status, title, memid, contents, dates, category);
+				won_boardVO vo = new won_boardVO(bno, status, title, memid, contents, dates, category);
 
 				list.add(vo);
 
@@ -58,8 +58,8 @@ public class BoardSearchDAO {
 
 	}
 
-	public ArrayList<boardVO> searchContents(String x) {
-		ArrayList<boardVO> list = new ArrayList<boardVO>();
+	public ArrayList<won_boardVO> searchContents(String x) {
+		ArrayList<won_boardVO> list = new ArrayList<won_boardVO>();
 
 		String sql = "select * from bqna " + "where contents like upper('%" + x + "%') ";
 
@@ -76,10 +76,10 @@ public class BoardSearchDAO {
 				String title = rs.getString("title");
 				String memid = rs.getString("memid");
 				String contents = rs.getString("contents");
-				String dates = rs.getString("date");
+				String dates = rs.getString("dates");
 				String category = rs.getString("category");
 
-				boardVO vo = new boardVO(bno, status, title, memid, contents, dates, category);
+				won_boardVO vo = new won_boardVO(bno, status, title, memid, contents, dates, category);
 
 				list.add(vo);
 			}
@@ -91,10 +91,10 @@ public class BoardSearchDAO {
 
 	}
 
-	public ArrayList<boardVO> searchMemid(String x) {
-		ArrayList<boardVO> list = new ArrayList<boardVO>();
+	public ArrayList<won_boardVO> searchMemid(String x) {
+		ArrayList<won_boardVO> list = new ArrayList<won_boardVO>();
 
-		String sql = "select * from bqna" + "where memid like upper('%" + x + "%') ";
+		String sql = "select * from bqna " + "where memid like upper('%" + x + "%') ";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -109,10 +109,10 @@ public class BoardSearchDAO {
 				String title = rs.getString("title");
 				String memid = rs.getString("memid");
 				String contents = rs.getString("contents");
-				String dates = rs.getString("date");
+				String dates = rs.getString("dates");
 				String category = rs.getString("category");
 
-				boardVO vo = new boardVO(bno, status, title, memid, contents, dates, category);
+				won_boardVO vo = new won_boardVO(bno, status, title, memid, contents, dates, category);
 
 				list.add(vo);
 			}
@@ -127,8 +127,8 @@ public class BoardSearchDAO {
 	
 	
 	
-	public ArrayList<boardVO> searchConTitle(String x){
-		ArrayList<boardVO> list = new ArrayList<boardVO>();
+	public ArrayList<won_boardVO> searchConTitle(String x){
+		ArrayList<won_boardVO> list = new ArrayList<won_boardVO>();
 		
 		String sql = 
 				"select * from bqna "
@@ -151,10 +151,10 @@ public class BoardSearchDAO {
 				String title = rs.getString("title");
 				String memid = rs.getString("memid");
 				String contents = rs.getString("contents");
-				String dates = rs.getString("date");
+				String dates = rs.getString("dates");
 				String category = rs.getString("category");
 
-				boardVO vo = new boardVO(bno, status, title, memid, contents, dates, category);
+				won_boardVO vo = new won_boardVO(bno, status, title, memid, contents, dates, category);
 
 				list.add(vo);
 			}
