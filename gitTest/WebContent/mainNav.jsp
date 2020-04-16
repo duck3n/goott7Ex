@@ -4,103 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style type="text/css">
+<link rel="stylesheet" href="../gitTest/css/mainNav.css" />
+
 
 <style type="text/css">
-html, body {
-	margin: 0;
-	padding: 0;
-	min-height: 100%;
-}
-
-#container {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-}
-
-/* 네비바 CSS */
-#nav_container {
-	height: 100px;
-	width: 100%;
-	position: fixed;
-	margin-top: 0;
-}
-
-#nav_local {
-	width: 100%;
-	margin-top: 0;
-	margin-left: 100px;
-}
-
-nav li {
-	float: left;
-	height: 50px;
-	width: 215px;
-	list-style-type: none;
-	text-align: center;
-	padding-top: 30px;
-}
-
-nav ul {
-	padding: 0;
-	margin-top: 10px;
-}
-
-li a {
-	text-decoration: none;
-	color: #403732;
-}
-
-/* 몸통 */
-#body_container {
-	width: 100%;
-}
-
-.test {
-	width: 100%;
-	height: 1080px;
-}
-
-#others {
-	width: 230px;
-	padding-top: 0px;
-	height: 80px;
-}
-
-.login {
-	width: 85%;
-	height: 20px;
-	text-align: left;
-	background-color: red;
-}
-
-#logo {
-	padding-top: 0px;
-}
-
-#menuX {
-	width: 50px;
-	text-align: right;
-	padding-top: 20px;
-	padding-right: 0px;
-}
-
-#mainStick {
-	padding-top: 2px;
-	text-align: right;
-	height: 80px;
-}
-
-#searchItem {
-	margin-left: 70px;
-	padding-top: 20px;
-}
-
 #searchBox {
-	background-image: url("../gitTest/mainResource/searchBar.png");
+	background-color: #e7efe5;
 	background-repeat: no-repeat;
-	border-radius: 35px;
+	border-radius: 15px;
 	border-style: solid;
 	border-color: #c4d9df #a4c3ca #83afb7;
 	height: 40px;
@@ -122,7 +33,7 @@ li a {
 }
 </style>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 $(function() {
@@ -139,6 +50,53 @@ function nav_slide() {
 	//슬라이드 아걸(개별)
 	$(item).stop().slideToggle(300);
 }
+
+var loadMenu = function(u, callback){
+	$.ajax({
+		url: u,
+		method: 'GET',
+		success: function(data){
+			callback(data);
+		}
+	});
+};
+
+
+var loadmypage = function(data){ // section 영역을 비우고 그 자리에 mypage 페이지를 넣는다.
+	$("section").empty();
+	$("section").html(data);
+};
+var loadshop = function(data){ 
+	$("section").empty();
+	$("section").html(data);
+};
+
+var loadlogout = function(data) {
+	$("section").empty();
+	$("section").html(data);
+}
+
+
+
+$(function(){
+	var $menuArr = $("#coreTopMenu>span>a"); // 메뉴(Login, Join) 페이지를 찾아 배열형태로 변수에 저장.
+	$menuArr.click(function(event){		
+		var url = $(this).attr('href');
+		switch(url){
+		
+		case '../hwang/hwang_mypage.jsp':
+			loadMenu(url, loadmypage);
+			break;
+		case '../hwang/hwang_shop.jsp':
+			loadMenu(url, loadshop);
+			break;
+		case '../hwang/hwang_logout.jsp':
+			loadMenu(url, loadlogout);
+			break;
+		};
+	return false;  //이벤트전달 중지
+	});
+});
 
 </script>
 
@@ -167,8 +125,8 @@ function nav_slide() {
 							<li class="navItem" id="searchItem">
 
 								<form id="searchBox" action="ProductSearch.jsp">
-									<input type="text" name="searchString" id="searchString" /> <input
-										type="submit" id="submit" value="    " />
+									<input type="text" name="searchString" id="searchString" /> 
+									<input type="submit" id="submit" value="    " />
 								</form>
 
 
@@ -195,10 +153,9 @@ function nav_slide() {
 					<li class="nav" id="others">
 
 						<div class="login">
-							<a href="#"><img src="../gitTest/mainResource/sign up.png"
-								id="sign" /></a> <img src="../gitTest/mainResource/stick.png"
-								id="stick" /> <a href="#"><img
-								src="../gitTest/mainResource/in.png" id="in" /></a>
+							<a href="../gitTest/hwang/hwang_mypage.jsp">마이페이지</a> 
+							<img src="../gitTest/mainResource/stick.png"id="stick" /> 
+							<a href="../gitTest/hwang/hwang_logout.jsp">로그아웃</a>
 						</div> <a href="#"><img src="../gitTest/mainResource/piggy.png"
 							id="piggy" /></a> <a href="#"><img
 							src="../gitTest/mainResource/wishList.png" id="wishList" /></a> <a
@@ -213,7 +170,7 @@ function nav_slide() {
 							src="../gitTest/mainResource/mainStick.png" id="mainStick" />
 					</a></li>
 
-					<li class="nav" id="menuX"><a href="#"> <img
+					<li class="nav" id="menuX"><a href="BoardSearchIndex.jsp"> <img
 							src="../gitTest/mainResource/menu.png" id="menu" />
 					</a></li>
 

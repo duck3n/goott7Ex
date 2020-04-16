@@ -7,9 +7,11 @@ public class ProductVO {
 	private String pbrend;
 	private String pname;
 	private String prodesc;
-	private int qty;
 	private String pcat;
 	private String imgfile;
+	private String imgfile2;
+	private String imgfile3;
+	private String imgfile4;
 
 	
 	
@@ -30,17 +32,19 @@ public class ProductVO {
 
 
 
-	public ProductVO(int pno1, String pbrend, String pname, String prodesc, int qty, String pcat, String imgfile, 
-			int pno2, String psite, int pprice, String plogo, int pback) 
-	{
+	public ProductVO(int pno1, String pbrend, String pname, String prodesc, String pcat, String imgfile,
+			String imgfile2, String imgfile3, String imgfile4, int pno2, String psite, int pprice, String plogo,
+			int pback) {
 		super();
 		this.pno1 = pno1;
 		this.pbrend = pbrend;
 		this.pname = pname;
 		this.prodesc = prodesc;
-		this.qty = qty;
 		this.pcat = pcat;
 		this.imgfile = imgfile;
+		this.imgfile2 = imgfile2;
+		this.imgfile3 = imgfile3;
+		this.imgfile4 = imgfile4;
 		this.pno2 = pno2;
 		this.psite = psite;
 		this.pprice = pprice;
@@ -107,20 +111,6 @@ public class ProductVO {
 
 
 
-	public int getQty() {
-		return qty;
-	}
-
-
-
-
-	public void setQty(int qty) {
-		this.qty = qty;
-	}
-
-
-
-
 	public String getPcat() {
 		return pcat;
 	}
@@ -145,6 +135,50 @@ public class ProductVO {
 	public void setImgfile(String imgfile) {
 		this.imgfile = imgfile;
 	}
+
+
+
+
+	public String getImgfile2() {
+		return imgfile2;
+	}
+
+
+
+
+	public void setImgfile2(String imgfile2) {
+		this.imgfile2 = imgfile2;
+	}
+
+
+
+
+	public String getImgfile3() {
+		return imgfile3;
+	}
+
+
+
+
+	public void setImgfile3(String imgfile3) {
+		this.imgfile3 = imgfile3;
+	}
+
+
+
+
+	public String getImgfile4() {
+		return imgfile4;
+	}
+
+
+
+
+	public void setImgfile4(String imgfile4) {
+		this.imgfile4 = imgfile4;
+	}
+
+
 
 
 	public int getPno2() {
@@ -213,8 +247,11 @@ public class ProductVO {
 	public void setPback(int pback) {
 		this.pback = pback;
 	}
+
+
 	
 	
+
 	
 	
 	

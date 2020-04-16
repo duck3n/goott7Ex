@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+
+
+body{
+background-color: #ffcab3;	
+}
+
+#searchBItem{
+width: 340px;
+vertical-align: middle;
+white-space: nowrap;
+position: relative;
+margin: auto auto;
+
+}
+
+#searchBString{
+width: 220px;
+height: 30px;
+background-color: #fbe0d4;
+background-color: transparent; 
+border: none;
+
+}
+
+
+#logoContainer{
+width: 1000px;
+padding-left: 200px;
+padding-top: 20px;
+	
+}
+
+#searchLogoContainer{
+margin-top: -200px;
+height: 100px;
+width: 270px;
+white-space: nowrap;
+margin: 0 auto;
+}
+
+#boardData{
+	
+width: 330px;
+height: 300px;	
+float: right;	
+
+
+padding-top: 120px;
+padding-right: 20px;
+
+}
+
+#boardDataMain{
+width: 220px;
+height: 220px;		
+outline: 1px solid black;
+
+}
+
+
+select {
+background-color: #fbe0d4;
+}
+
+
+#notice{
+margin-top: 100px;
+width: 1200px;
+height: 1500px;	
+margin-left: 360px;	
+background-color: #fbe0d4;
+padding-left: 0px;
+}
+

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+
+#ProductResult{
+	
+margin: 0 auto;
+width: 1200px;
+outline: 2px solid red;	
+	
+}
+
+#img{
+width: 300px;
+height: 300px;
+}
+
+
+p{
+text-align: center;
+}
+
+#ProductWrap{
+border: 1px solid black;
+float: left;
+width: 300px;
+	
+}

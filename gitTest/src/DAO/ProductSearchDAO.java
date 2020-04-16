@@ -28,9 +28,7 @@ public class ProductSearchDAO {
 		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 		
 		String sql =
-				"select pro.pno, pro.pbrend, pro.pname, pro.prodesc, pro.qty, pro.pcat, pro.imgfile, "
-				+
-				"price.pno, price.psite, price.pprice, price.plogo, price.pback "
+				"select * "
 				+
 				"from product pro INNER JOIN proprice price "
 				+
@@ -47,21 +45,23 @@ public class ProductSearchDAO {
 
 				while (rs.next()) {
 					
-					int pno1 = rs.getInt("pno1");
-					String pbrend = rs.getString("pbrend");
-					String pname = rs.getString("pname");
-					String prodesc = rs.getString("prodesc");
-					int qty = rs.getInt("qty");
-					String pcat = rs.getString("pcat");
-					String imgfile = rs.getString("imgfile");;
-					int pno2 = rs.getInt("pno2");
-					String psite = rs.getString("psite");
-					int pprice = rs.getInt("pprice");
-					String plogo = rs.getString("plogo");
-					int pback = rs.getInt("pback");
+					int pno1 = rs.getInt(1);
+					String pbrend = rs.getString(2);
+					String pname = rs.getString(3);
+					String prodesc = rs.getString(4);
+					String pcat = rs.getString(5);
+					String imgfile = rs.getString(6);
+					String imgfile2 = rs.getString(7);
+					String imgfile3 = rs.getString(8);
+					String imgfile4 = rs.getString(9);
+					int pno2 = rs.getInt(10);
+					String psite = rs.getString(11);
+					int pprice = rs.getInt(12);
+					String plogo = rs.getString(13);
+					int pback = rs.getInt(14);
 			
 
-					ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, pno2, psite, pprice, plogo, pback);
+					ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
 							
 					list.add(vo);
 
@@ -86,13 +86,11 @@ public class ProductSearchDAO {
 			
 
 			String sql =
-					"select pro.pno, pro.pbrend, pro.pname, pro.prodesc, pro.qty, pro.pcat, pro.imgfile, pro.imgfile2, pro.imgfile3, pro.imgfile4"
-					+
-					"price.pno, price.psite, price.pprice, price.plogo, price.pback "
+					"select * "
 					+
 					"from product pro INNER JOIN proprice price "
 					+
-					"on product.pno = proprice.pno "
+					"on pro.pno =  price.pno "
 					+
 					"where pro.pbrend like upper('%" + x + "%') ";
 		
@@ -103,24 +101,26 @@ public class ProductSearchDAO {
 
 					rs = pstmt.executeQuery();
 					while (rs.next()) {
-						
-						int pno1 = rs.getInt("pno1");
-						String pbrend = rs.getString("pbrend");
-						String pname = rs.getString("pname");
-						String prodesc = rs.getString("prodesc");
-						int qty = rs.getInt("qty");
-						String pcat = rs.getString("pcat");
-						String imgfile = rs.getString("imgfile");;
-						int pno2 = rs.getInt("pno2");
-						String psite = rs.getString("psite");
-						int pprice = rs.getInt("pprice");
-						String plogo = rs.getString("plogo");
-						int pback = rs.getInt("pback");
+						int pno1 = rs.getInt(1);
+						String pbrend = rs.getString(2);
+						String pname = rs.getString(3);
+						String prodesc = rs.getString(4);
+						String pcat = rs.getString(5);
+						String imgfile = rs.getString(6);
+						String imgfile2 = rs.getString(7);
+						String imgfile3 = rs.getString(8);
+						String imgfile4 = rs.getString(9);
+						int pno2 = rs.getInt(10);
+						String psite = rs.getString(11);
+						int pprice = rs.getInt(12);
+						String plogo = rs.getString(13);
+						int pback = rs.getInt(14);
 				
 
-						ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, pno2, psite, pprice, plogo, pback);
+						ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
 								
 						list.add(vo);
+
 
 
 					}
@@ -142,13 +142,11 @@ public class ProductSearchDAO {
 				ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 
 				String sql =
-						"select pro.pno, pro.pbrend, pro.pname, pro.prodesc, pro.qty, pro.pcat, pro.imgfile, pro.imgfile2, pro.imgfile3, pro.imgfile4"
-						+
-						"price.pno, price.psite, price.pprice, price.plogo, price.pback "
+						"select * "
 						+
 						"from product pro INNER JOIN proprice price "
 						+
-						"on product.pno = proprice.pno "
+						"on pro.pno = price.pno "
 						+
 						"where pro.pcat like upper('%" + x + "%') ";
 			
@@ -160,23 +158,26 @@ public class ProductSearchDAO {
 						rs = pstmt.executeQuery();
 						while (rs.next()) {
 							
-							int pno1 = rs.getInt("pno1");
-							String pbrend = rs.getString("pbrend");
-							String pname = rs.getString("pname");
-							String prodesc = rs.getString("prodesc");
-							int qty = rs.getInt("qty");
-							String pcat = rs.getString("pcat");
-							String imgfile = rs.getString("imgfile");;
-							int pno2 = rs.getInt("pno2");
-							String psite = rs.getString("psite");
-							int pprice = rs.getInt("pprice");
-							String plogo = rs.getString("plogo");
-							int pback = rs.getInt("pback");
+							int pno1 = rs.getInt(1);
+							String pbrend = rs.getString(2);
+							String pname = rs.getString(3);
+							String prodesc = rs.getString(4);
+							String pcat = rs.getString(5);
+							String imgfile = rs.getString(6);
+							String imgfile2 = rs.getString(7);
+							String imgfile3 = rs.getString(8);
+							String imgfile4 = rs.getString(9);
+							int pno2 = rs.getInt(10);
+							String psite = rs.getString(11);
+							int pprice = rs.getInt(12);
+							String plogo = rs.getString(13);
+							int pback = rs.getInt(14);
 					
 
-							ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, qty, pcat, imgfile, pno2, psite, pprice, plogo, pback);
+							ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
 									
 							list.add(vo);
+
 
 
 						}

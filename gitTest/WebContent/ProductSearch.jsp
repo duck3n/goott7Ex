@@ -40,6 +40,7 @@ else if(request.getSession().getAttribute("searchString") != null){
 	</form>
 	
 	
+	내부가 바뀔 페이
 	<div id="container">
 		<jsp:include page="nav.jsp"></jsp:include>
 		<jsp:include page="<%=pname %>"></jsp:include>

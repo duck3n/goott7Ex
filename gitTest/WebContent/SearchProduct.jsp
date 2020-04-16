@@ -3,7 +3,7 @@
 <%@page import="DAO.ProductSearchDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="../css/ProductSearchLayout.css" />
+<link rel="stylesheet" href="../gitTest/css/ProductResult.css" />
     
 <div id = "searchContents">
 
@@ -32,13 +32,9 @@ ProductSearchDAO dao = new ProductSearchDAO();
 
 %>
 <h1>상품</h1>
-<table>
-	<tr>
-		<td>상품코드</td>
-		<td>상품명</td>	
-		<td>상품가격</td>
-	</tr>
-	
+
+<div id="ProductResult">
+
 	
 <%
 ArrayList<ProductVO> list = dao.searchProduct(searchString);
@@ -47,22 +43,22 @@ for(ProductVO vo : list){
 
 %>	
 	
-<tr>
-		<td><%=vo.getPno1() %></td>
-		<td><%=vo.getPname() %></td>
-		<td><%=vo.getPprice() %></td>
 	
+<div id="ProductWrap">
+<%=vo.getPno1() %>
+	<a href="">	<!-- 상품을 클릭하면 해당 상품으로 이 -->
+	<img src="<%=vo.getImgfile() %>" alt="<%=vo.getPname() %>" />
+	</a>
+	<p><%=vo.getPname() %></p>
+	<p><%=vo.getPprice() %></p>
+</div>	
+		
 <%
 }
 %>
 		
 	
-	</tr>
 
 
-</table>
-
-
-
-
+</div>
 </div>

@@ -1,4 +1,4 @@
-<%@page import="VO.boardVO"%>
+<%@page import="VO.won_boardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.BoardSearchDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -8,7 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style type="text/css">
+body{
+background-color: #ffcab3;	
+}
+</style>
 </head>
+
 <body>
 
 
@@ -38,12 +45,13 @@ BoardSearchDAO dao = new BoardSearchDAO();
 		<td>카테고리</td>
 		<td>제목</td>
 		<td>작성자</td>
-		<td>작성일</td>
+		<td>날짜</td>
+		<td>답변유무</td>
 	</tr>
 
 
 <%
-	ArrayList<boardVO> list = new ArrayList<boardVO>();
+	ArrayList<won_boardVO> list = new ArrayList<won_boardVO>();
 	
 	if(select.equals("title")){
 		list = dao.searchTitle(searchBString);
@@ -60,16 +68,17 @@ BoardSearchDAO dao = new BoardSearchDAO();
 		list = dao.searchMemid(searchBString);
 	}
 
-for(boardVO vo : list) {
+for(won_boardVO vo : list) {
 %>
 
 <tr>
 	
 	<td><%=vo.getBno() %></td>
 	<td><%=vo.getCategory() %></td>
-	<td><%=vo.getTitle() %></td>
+	<td><a href="../gitTest/won/board_detail.jsp?bno=<%=vo.getBno() %>"><%=vo.getTitle() %></a></td>
 	<td><%=vo.getMemid() %></td>
 	<td><%=vo.getDates() %></td>
+	<td><%=vo.getStatus() %></td>
 
 
 
@@ -81,6 +90,8 @@ for(boardVO vo : list) {
 </tr>
 
 </table>
+
+<a href="../gitTest/won/board_list.jsp"><input type="button" value="목록" /></a>
 
 </body>
 
