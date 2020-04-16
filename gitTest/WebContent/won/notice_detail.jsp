@@ -20,7 +20,7 @@
 		response.sendRedirect("notice_list.jsp");
 	}
 %> 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <meta charset="UTF-8">
