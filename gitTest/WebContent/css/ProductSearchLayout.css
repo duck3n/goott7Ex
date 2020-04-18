@@ -1,54 +1,30 @@
 @charset "UTF-8";
 
-body{
-background-color: #ffcab3;	
-}
-
-
-*{
-	margin: 0;
+* {
+	margin: 0px;
 	padding: 0;
 }
 
-#container{
-	width: 1000px;
-	margin: auto;
+body {
+	background-color: #eee8da;
 }
 
-#nav{
-	padding-left: 100px;
-	margin: 0, 30px;
+
+
+#navBar{
+	
+height: 300px;	
+background-color: red;
 }
 
-a{
-	margin: 30px;
-	text-decoration: none;
+#containerX{
+margin-top: 150px;
+text-align: center;
+width: 1200px;
+	
+	
 }
 
-#searchContents{qwewqwqewqweq
-	width: 700px;
-	float: left;
-	background-color: yellow;
+#searchString{
+border: 1px solid black;	
 }
-
-#sidebar{
-	width: 30%;
-	float: right;
-	background-color: skyblue;
-}
-
-#login{
-	padding: 10px;
-	width: 150px;
-	text-align: center;
-}
-
-ol {
-	list-style-type: none;
-}
-
-#footer{
-	clear: both;
-	background-color: darkgray;
-}
-

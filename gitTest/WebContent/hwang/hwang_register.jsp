@@ -147,6 +147,11 @@ function email_change() {
 th, td {
    vertical-align: middle;
 }
+
+body{
+background-color: #ffd8d8;
+color: #747474;
+}
 </style>
 
 </head>
@@ -169,7 +174,7 @@ th, td {
       <div class="joinInputArea">
          <!-- 가입 영역 -->
          <!-- 비밀번호 힌트 추가 ? -->
-         <table width="940" style="padding: 5px 0 5px 0;" align="center">
+         <table width="940" height="850" style="padding: 5px 0 5px 0;" align="center">
          <form action="#" name = "frm">  
             <tbody>
                <tr height="2" bgcolor="#FFC8C3">
@@ -258,12 +263,12 @@ th, td {
                </tr>
                
             
-               <th scope="row">등급 <img src="../images/ico_required.gif"
+               <th scope="row">로봇이 아닙니다 <img src="../images/ico_required.gif"
                      alt="required Field">
                   </th>
                   <td>
-                  <input type="checkbox" name="grade"  id = "grade"value = "king" disabled/>관리자
-                  <input type="checkbox" name="grade"  id = "grade"value = "normal"  />일반  
+                  <input type="checkbox" name="grade"  id = "grade"value = "normal"  /> 필수체크
+                    
                      <br></td>
                </tr>
                <th scope="row">생년월일 <img src="../images/ico_required.gif"

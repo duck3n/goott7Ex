@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>네이버 메인 따라 만들기</title>
-<link rel="stylesheet" href="../css/ProductSearchLayout.css" />
+<title>검색</title>
+<link rel="stylesheet" href="./css/ProductSearchLayout.css" />
 </head>
 <body>
+
+
+
 
 <%
 String pname = "";
@@ -30,23 +33,82 @@ else if(request.getSession().getAttribute("searchString") != null){
 		pname = fno + ".jsp";
 	
 	}
+	
+	
+	Cookie[] c = request.getCookies();
+	if (c != null) {
+		for (Cookie cf : c) {
+			if (cf.getName().equals("id")){
+				String ids = cf.getValue();
+				session.setAttribute("id", ids);
+			}
+		}
+	}
+
+	// 세션값 가져오기
+	String id = (String) session.getAttribute("id"); // Object 타입이므로 다운캐스팅
+	 
+	
+	System.out.println("id : " + id);
 
 %>
 	
 	
+	
+
+
+	
+
+		
+	
+
+
+	
+	<%
+	if(id == null){
+	
+	%>
+
+
+		<jsp:include page="before_mainNav.jsp"></jsp:include>
+
+	<%
+	}
+	else{
+		
+	
+	%>
+	<jsp:include page="mainNav.jsp"></jsp:include>
+	
+	<%
+	}
+	%>
+	
+	
+	
+	<div id="containerX">
+	
+	<div id="searchTool">
 	<form action="#">
 	<input type="text" name="searchString" id="searchString" value=<%=searchString %> />
 	<input type="submit" value="검색" />
 	</form>
 	
 	
-	내부가 바뀔 페이
-	<div id="container">
+	
+	</div>
+	
+	
+	
+	
+
+	<div id="bodyX">
 		<jsp:include page="nav.jsp"></jsp:include>
 		<jsp:include page="<%=pname %>"></jsp:include>
 
-
 	</div>
 	
+	
+</div>	
 </body>
 </html>

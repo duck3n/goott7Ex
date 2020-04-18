@@ -41,9 +41,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <meta charset="UTF-8">
 <title>공지사항 / 이벤트</title>
 <style type="text/css">
+
+
+
 	#container {
 		/* 테이블 가운데로 옮기기 */
 		margin: auto;
@@ -63,8 +68,15 @@
 		width: 20%;
 	}
 	body{
-background-color: #ffcab3;	
-}
+		background-color: #ffcab3;	
+	}
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
+
 	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -131,8 +143,24 @@ background-color: #ffcab3;
 
 			<tr>
 				<!-- 등록 버튼은 admin만 보일 수 있게 하기 -->
+				
+				
+				 
+				 <%
+				 	String id = null;
+					if(session.getAttribute("id")!=null){
+						id=(String)session.getAttribute("id");
+						if(id.equalsIgnoreCase("admin")){
+				
+				 %>
+				 
 				<td colspan="5" class="btn" align="right"><a href="notice_write.jsp"><input
-						type="button" value="등록" /></a></td>
+						id="btn" type="button" value="등록" /></a></td> 
+						
+					<%
+							}
+						}
+					%>
 			</tr>
 
 		</table>

@@ -18,27 +18,44 @@
 		session.setAttribute("id", id);
 		session.setAttribute("pw", pw);
 
-		// 사용자의 로그인 유지 여부를 null 체크로 확인 
-		if (loginChk != null) { // 체크한 경우
-			Cookie c = new Cookie("id", id);
-			c.setMaxAge(60 * 2);
-			c.setPath("/");
-			response.addCookie(c);
-		}
+			// 사용자의 로그인 유지 여부를 null 체크로 확인 
+			if (loginChk != null) { // 체크한 경우
+				Cookie c = new Cookie("id", id);
+				c.setMaxAge(60 * 2);
+				c.setPath("/");
+				response.addCookie(c);
+			}
+		
+			//아이디가 "ADMIN"일 경우 관리자 페이지로 
+			if(id.equalsIgnoreCase("admin")){
+		%>
+			<script>
+				alert("관리자 인증되었습니다.");
+				location.href = "../managePage/mian.jsp"; // 쿠키 정보도 같이 넘어감
+			</script>
+		<%
+				
+			}else{
+				
 
 %>
-	<script>
-		alert("인증되었습니다.");
-		location.href = "../mainPage.jsp"; // 쿠키 정보도 같이 넘어감
-	</script>
+		<script>
+			alert("회원 인증되었습니다.");
+			location.href = "../mainPage.jsp"; // 쿠키 정보도 같이 넘어감
+		</script>
+	
 <%
+
+			}
+	//이도저도 아닐 때 
 	} else {
 %>
-	<script>
-		alert("아이디나 비밀번호가 다릅니다.");
-		location.href = "../hwang/hwang_login.jsp";
-	</script>
+		<script>
+			alert("아이디나 비밀번호가 다릅니다.");
+			location.href = "../hwang/hwang_login.jsp";
+		</script>
 <%
 	}
 %>
+
 

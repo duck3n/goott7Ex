@@ -6,6 +6,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	body{ background-color: #FFD8D8;}
+	img{
+		width: 70px;
+		height: 70px;
+		display: block;
+		margin: auto auto;
+	}
+	#title{
+		margin-top: 50px;
+	
+	}
+	#container{
+		margin-top: 80px;
+	}
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
+</style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -78,6 +100,14 @@
 			}
 		}
 	%>
+	
+	<div id="title">
+		<img src="../mainResource/logo.png" alt="로고 이미지 하나 넣을 거에요"/>
+	</div>
+	
+	<br />
+	<br />
+	
 	<div style="text-align: center;">
 		<form action="../hwang/hwang_loginOk.jsp" method="post">
 			<!-- <form action="#" name = "frm"> -->
@@ -92,17 +122,19 @@
 
 			</div>
 			<br>
+			<br />
 			<div>
 				<input type="checkbox" name="loginChk" value="true">로그인 상태
 				유지<br />
-				<button type="submit" id="loginbtn">로그인</button>
-				&nbsp;&nbsp; <a href="../hwang/hwang_register.jsp"><button type="button">회원가입</button>&nbsp;&nbsp;</a>
+				<button type="submit" id="btn">로그인</button>
+				&nbsp;&nbsp; <a href="../hwang/hwang_register.jsp"><button id="btn" type="button">회원가입</button>&nbsp;&nbsp;</a>
 
 			</div>
 			<br />
+			<br />
 			<div>
-				<input type="button" value="아이디찾기" onclick="popup()" /> <input
-					type="button" value="비밀번호찾기" onclick="popup1()" />
+				<input id="btn" type="button" value="아이디찾기" onclick="popup()" /> <input
+					id="btn" type="button" value="비밀번호찾기" onclick="popup1()" />
 			</div>
 
 		</form>

@@ -223,5 +223,48 @@ public class hwang_memberDao {
 			e.printStackTrace();
 		}
 	}// updateData end
+	
+	//전체 회원 이메일 가져오기
+	public String[] getAllEmail() {
+		String[] emailList = null;
 
+		sb.setLength(0);
+		sb.append("select email from member2 ");
+
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			rs = pstmt.executeQuery();
+			while (rs.next()) {		
+				String email = rs.getString("email");			
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return emailList;
+	}// getAllData end
+
+	
+	
+	//계좌 추가
+	public String addAccount(String account, String bank) {
+		sb.append("insert into bank " );
+		sb.append("values (upper(?), upper(?) ) " );
+		
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, account);
+			pstmt.setString(2, bank);
+			
+			
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+	}
+		return account;
+	}
 }

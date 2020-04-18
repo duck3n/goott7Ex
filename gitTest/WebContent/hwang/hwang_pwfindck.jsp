@@ -1,14 +1,15 @@
 <%@page import="DAO.hwang_memberDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <%
+	request.setCharacterEncoding("UTF-8");
 	//String name = request.getParameter("name");
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
@@ -25,12 +26,12 @@
 	%>
 	<%if(pw==null){ %>
 <script type="text/javascript">
-alert("���̵� �������� �ʽ��ϴ�.");
+alert("아이디가 존재하지 않습니다.");
 history.go(-1);
 </script>
 <%}else{%>
 <script type="text/javascript">
-alert("ã���ô� ��й�ȣ�� <%=pw%>�Դϴ�.");
+alert("찾으시는 비밀번호는 <%=pw%>입니다.");
 window.close();
 </script>
 <%}%>

@@ -62,6 +62,12 @@
 	body{
 background-color: #ffcab3;	
 }
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
 	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -125,7 +131,7 @@ background-color: #ffcab3;
 			</tr>
 			
 			<tr>
-				<td colspan="6" class="btn" align="right"><a href="board_write.jsp"><input type="button" value="등록하기" /></a></td>
+				<td colspan="6" class="btn" align="right"><a href="board_write.jsp"><input id="btn" type="button" value="등록하기" /></a></td>
 			</tr>
 		</table>
 		</div>
