@@ -24,7 +24,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#delConfirm').on('click',function(){ 
+		$('.delConfirm').on('click',function(){ 
 			var flag = confirm("삭제하시겠습니까?");
 			var bno = <%=vo.getBno() %>
 			
@@ -33,7 +33,7 @@
 				location.href = "notice_deleteOk.jsp?bno=<%=vo.getBno()%>";
 			}
 		});
-		$('#status').on('click',function(){
+		$('.status').on('click',function(){
 			var flag0 = confirm("블라인드 처리하시겠습니까?");
 			var bno = <%=vo.getBno()%>
 			
@@ -48,7 +48,12 @@
 body{
 background-color: #ffcab3;	
 }
-
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
 </style>
 </head>
 <body>
@@ -84,10 +89,10 @@ background-color: #ffcab3;
 			<tr>
 				<th></th>
 				<td colspan="6">
-					<a href="board_list.jsp"><input type="button" value="목록" /></a>
-					<input type="submit" value="수정" />
-					<input type="button" value="삭제" />
-					<input type="button" value="관리" id="status" />
+					<a href="board_list.jsp"><input id="btn" type="button" value="목록" /></a>
+					<input id="btn" type="submit" value="수정" />
+					<input id="btn" type="button" value="삭제" class="delConfirm" />
+					<input id="btn" type="button" value="관리" class="status" />
 				</td>
 			</tr>
 		</table>

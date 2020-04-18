@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="../gitTest/css/mainPage.css" />
-<link rel="stylesheet" href="../gitTest/css/mainNav.css" />
+<link rel="stylesheet" href="./css/mainPage.css" />
+<link rel="stylesheet" href="./css/mainNav.css" />
 
 
 <%
@@ -39,16 +39,7 @@ String id = (String) session.getAttribute("id"); // Object 타입이므로 다�
 	<div id="body_container">
 		<img src="../gitTest/mainResource/mainBG.gif" alt="" />
 
-		<div class="test">
 
-		<jsp:include page="asdasdad.jsp"></jsp:include>
-			
-		</div>
-		
-		<div class="test"></div>
-		<div class="test"></div>
-		<div class="test"></div>
-		<div class="test"></div>
 
 	</div>
 

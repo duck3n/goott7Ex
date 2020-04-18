@@ -47,6 +47,12 @@
 body{
 background-color: #ffcab3;	
 }
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
 
 
 </style>
@@ -96,10 +102,10 @@ background-color: #ffcab3;
 					String id=null;
 					if(session.getAttribute("id")!=null){
 						id=(String)session.getAttribute("id");
-						if(id.equalsIgnoreCase(vo.getMemid())){
+						if(id.equalsIgnoreCase(vo.getMemid()) || id.equalsIgnoreCase("admin")){
 				%>
-				<a href="board_modify.jsp?bno=<%=vo.getBno() %>"><input type="button" value="수정" /></a>
-				<input type="button" value="삭제" id="delConfirm" />
+				<a href="board_modify.jsp?bno=<%=vo.getBno() %>"><input id="btn" type="button" value="수정" /></a>
+				<input id="btn" type="button" value="삭제" class="delConfirm" />
 				<%
 						}
 					}
@@ -111,12 +117,21 @@ background-color: #ffcab3;
 	<!-- 댓글 작성 from 만들기 관리자만! 댓글달기. -->
 	<form action="board_replyOk.jsp">
 		<table>
-			<%-- <tr>
-				<th>댓글 작성</th>
+			<%
+				if(session.getAttribute("id")!=null){
+					id=(String)session.getAttribute("id");
+					if(id.equalsIgnoreCase("admin")){
+			%>
 				<td><input type="text" name="comm" id="" size="30" /> 
 				<input type="hidden" name="bno" value=<%=vo.getBno()%> />
-				<input type="submit" value="작성" /></td>
-			</tr> --%>
+				<input id="btn type="submit" value="작성" /></td>
+			<%
+					}
+				}
+			%>
+<!-- 			<tr>
+				<th>댓글 작성</th>
+			</tr> -->
 			<%
 				ArrayList<reqnaVO> list = rdao.getAllComm();
 				

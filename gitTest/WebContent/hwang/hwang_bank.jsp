@@ -1,12 +1,11 @@
 <%@page import="DAO.hwang_memberDao"%>
 <%@page import="VO.hwang_memberVo"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#modi").on('click', function() {
-		document.frm.action = "modify.jsp";
+	$("#save").on('click', function() {
+		document.frm.action = "hwang_banksave.jsp";
 		document.frm.method = "get";
 		document.frm.submit();
 	});
@@ -21,6 +20,9 @@ text-decoration: none;
 	margin-left : 900px;
 	margin-bottom : 200px;
 }
+#account {
+	margin-left : 850px;
+}
 </style>
 
 <body>
@@ -32,7 +34,7 @@ text-decoration: none;
 %>
 <header>
 									<!-- 페이지 타이틀을 클릭하면 메인화면으로 이동 -->
-	<p  style="text-align: center; "><a href="../gitTest/hwang/hwang_main2.jsp"> 
+	<p  style="text-align: center; "><a href='main2.jsp'> 
 	<font color="black" id="HOME"> HOMEPAGE </font></a>
 	<div style="text-align: right;">
 
@@ -44,12 +46,28 @@ text-decoration: none;
 	<br>
 </header>
 <section>
-<a href="../gitTest/hwang/main2.jsp"><p>이전</p></a><span id="custom">계좌관리</span>
+<a href="main2.jsp"><p>이전</p></a><span id="custom">계좌관리</span>
+<br />
+
 <br />
 <hr />
 <hr />
 
 
+<form action="#" name = "frm">
 </section>
+
+<input type="text" name="account" id="account" placeholder = "계좌번호 입력 -제외" />
+<select name="bank" id="bank">
+				       <option value="농협">농협</option>
+				       <option value="우리">우리</option>
+				       <option value="ibk">기업</option>
+				       <option value="신한">신한</option>
+				       <option value="국민">국민</option>
+				     
+
+</select>
+<input type="button" value="저장" id="save" />
+</form>
 <footer></footer>
 </body>

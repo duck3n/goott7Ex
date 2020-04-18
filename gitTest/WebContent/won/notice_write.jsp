@@ -28,6 +28,12 @@
 	#container{
 		width: 800px;
 	}
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
 </style>
 </head>
 <body>
@@ -74,7 +80,7 @@
 				</p>
 			</div>
 			<div id="button">
-				<a href="notice_list.jsp"><input type="button" value="목록보기" /></a> <input type="submit"
+				<a href="notice_list.jsp"><input id="btn" type="button" value="목록보기" /></a> <input id="btn" type="submit"
 					value="작성하기" />
 			</div>
 		</div>

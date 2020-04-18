@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../gitTest/css/mainNav.css" />
+<link rel="stylesheet" href="./css/mainNav.css" />
 
 
 <style type="text/css">
@@ -25,7 +25,7 @@
 }
 
 #submit {
-	background-image: url("../gitTest/mainResource/searchBtn.png");
+	background-image: url("./mainResource/searchBtn.png");
 	border: none;
 	width: 40px;
 	height: 40px;
@@ -107,16 +107,16 @@ $(function(){
 
 					<!--여기부터 -->
 					<li class="nav" id="logo"><a href="#"> <img
-							src="../gitTest/mainResource/logo.png" id="Logo" />
+							src="./mainResource/logo.png" id="Logo" />
 					</a></li>
 
 					<li class="nav"><a href="#"> <img
-							src="../gitTest/mainResource/searchIcon.png" id="search" />
+							src="./mainResource/searchIcon.png" id="search" />
 					</a>
 						<ul>
 							<li class="navItem" id="searchItem">
 
-								<form id="searchBox" action="ProductSearch.jsp">
+								<form id="searchBox" action="ProductSearch.jsp" target="_blank">
 									<input type="text" name="searchString" id="searchString" /> 
 									<input type="submit" id="submit" value="    " />
 								</form>
@@ -126,45 +126,42 @@ $(function(){
 						</ul></li>
 
 					<li class="nav"><a href="#"> <img
-							src="../gitTest/mainResource/BRAND LIST.png" id="blandList" />
+							src="./mainResource/BRAND LIST.png" id="blandList" />
 					</a></li>
 
-					<li class="nav"><a href="#"> <img
-							src="../gitTest/mainResource/Clothing.png" id="clothing" />
+					<li class="nav"><a href="../gitTest/han/productList.jsp"> <img
+							src="./mainResource/Clothing.png" id="clothing" />
 					</a></li>
 
-					<li class="nav"><a href="#"> <img
-							src="../gitTest/mainResource/accessories.png" id="accessories" />
-					</a></li>
 
 					<li class="nav"><a href="#"> <img
-							src="../gitTest/mainResource/Retailer.png" id="Retailer" />
+							src="./mainResource/Retailer.png" id="Retailer" />
 					</a></li>
 
 
 					<li class="nav" id="others">
 
 						<div class="login">
-							<a href="../gitTest/hwang/hwang_register.jsp"><img src="../gitTest/mainResource/sign up.png"
-								id="sign" /></a> <img src="../gitTest/mainResource/stick.png"
+							<a href="../hwang/hwang_register.jsp"><img src="./mainResource/sign up.png"
+								id="sign" /></a> <img src="./mainResource/stick.png"
 								id="stick" /> <a href="../gitTest/hwang/hwang_login.jsp"><img
-								src="../gitTest/mainResource/in.png" id="in" /></a>
-						</div> <a href="#"><img src="../gitTest/mainResource/piggy.png"
+								src="./mainResource/in.png" id="in" /></a>
+						</div> <a href="#"><img src="./mainResource/piggy.png"
 							id="piggy" /></a> <a href="#"><img
-							src="../gitTest/mainResource/wishList.png" id="wishList" /></a> <a
+							src="./mainResource/wishList.png" id="wishList" /></a> <a
 						href="#"><img
-							src="../gitTest/mainResource/shoppingBag full.png"
+							src="./mainResource/shoppingBag full.png"
 							id="shoppingBag" /></a>
 
 					</li>
 
 
 					<li class="nav" id="mainStick"><a href="#"> <img
-							src="../gitTest/mainResource/mainStick.png" id="mainStick" />
+							src="./mainResource/mainStick.png" id="mainStick" />
 					</a></li>
 
 					<li class="nav" id="menuX"><a href="#"> <img
-							src="../gitTest/mainResource/menu.png" id="menu" />
+							src="./mainResource/menu.png" id="menu" />
 					</a></li>
 
 

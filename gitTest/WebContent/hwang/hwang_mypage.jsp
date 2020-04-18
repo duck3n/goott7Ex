@@ -33,13 +33,6 @@ background-color: #ffcab3;
 
 
 
-	<div id="container">
-
-		<jsp:include page="../mainNav.jsp"></jsp:include>
-
-
-	</div>
-
 
 
 <div id="mypage">
@@ -53,7 +46,7 @@ background-color: #ffcab3;
   
   <a href="BoardSearchIndex.jsp"> <p>고객센터</p> </a>
   
-  <a href="../hwan/hwang_bank.jsp"><p>계좌 및 적립금 관리</p></a>
+  <a href="../hwang/hwang_bank.jsp"><p>계좌 및 적립금 관리</p></a>
   
  </ul>
 </aside>

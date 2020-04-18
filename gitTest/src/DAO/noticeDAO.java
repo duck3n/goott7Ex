@@ -45,6 +45,7 @@ public class noticeDAO {
 		sb.append("order by bno desc ) ");
 		sb.append("where rownum <= ? ) ");
 		sb.append("where rn >= ? ");
+		sb.append("order by regdate desc ");
 
 		try {
 			pstmt = conn.prepareStatement(sb.toString());

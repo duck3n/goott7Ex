@@ -45,11 +45,10 @@ for(ProductVO vo : list){
 %>	
 	
 <div id="ProductWrap">
-	<%=vo.getPno1() %>
-	<a href="">	<!-- 상품을 클릭하면 해당 상품으로 이동 -->
+	<p><%=vo.getPbrand() %></p>
+	<a href="../gitTest/han/productDetail.jsp?pno=<%=vo.getPno() %>"><%=vo.getPname() %></a>
 	<img src="<%=vo.getImgfile() %>" alt="<%=vo.getPname() %>" />
 	</a>
-	<p><%=vo.getPname() %></p>
 	<p><%=vo.getPprice() %></p>	
 </div>
 <%

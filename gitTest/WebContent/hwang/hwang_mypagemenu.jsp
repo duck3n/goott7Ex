@@ -66,7 +66,7 @@ text-decoration: none;
 %>
 <header>
 									<!-- 페이지 타이틀을 클릭하면 메인화면으로 이동 -->
-	<p  style="text-align: center; "><a href='main2.jsp'> 
+	<p  style="text-align: center; "><a href='../hwang_main2.jsp'> 
 	<font color="black" id="HOME"> HOMEPAGE </font></a>
 	<div style="text-align: right;">
 

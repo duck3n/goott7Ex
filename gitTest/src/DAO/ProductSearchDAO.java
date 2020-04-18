@@ -45,8 +45,8 @@ public class ProductSearchDAO {
 
 				while (rs.next()) {
 					
-					int pno1 = rs.getInt(1);
-					String pbrend = rs.getString(2);
+					int pno = rs.getInt(1);
+					String pbrand = rs.getString(2);
 					String pname = rs.getString(3);
 					String prodesc = rs.getString(4);
 					String pcat = rs.getString(5);
@@ -54,15 +54,13 @@ public class ProductSearchDAO {
 					String imgfile2 = rs.getString(7);
 					String imgfile3 = rs.getString(8);
 					String imgfile4 = rs.getString(9);
-					int pno2 = rs.getInt(10);
 					String psite = rs.getString(11);
 					int pprice = rs.getInt(12);
 					String plogo = rs.getString(13);
 					int pback = rs.getInt(14);
 			
 
-					ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
-							
+					ProductVO vo = new ProductVO(pno, pname, pbrand, pcat, prodesc, imgfile, imgfile2, imgfile3, imgfile4, psite, pprice, plogo, pback);
 					list.add(vo);
 
 				}
@@ -92,7 +90,7 @@ public class ProductSearchDAO {
 					+
 					"on pro.pno =  price.pno "
 					+
-					"where pro.pbrend like upper('%" + x + "%') ";
+					"where pro.pbrand like upper('%" + x + "%') ";
 		
 				try {
 
@@ -101,8 +99,8 @@ public class ProductSearchDAO {
 
 					rs = pstmt.executeQuery();
 					while (rs.next()) {
-						int pno1 = rs.getInt(1);
-						String pbrend = rs.getString(2);
+						int pno = rs.getInt(1);
+						String pbrand = rs.getString(2);
 						String pname = rs.getString(3);
 						String prodesc = rs.getString(4);
 						String pcat = rs.getString(5);
@@ -110,14 +108,13 @@ public class ProductSearchDAO {
 						String imgfile2 = rs.getString(7);
 						String imgfile3 = rs.getString(8);
 						String imgfile4 = rs.getString(9);
-						int pno2 = rs.getInt(10);
 						String psite = rs.getString(11);
 						int pprice = rs.getInt(12);
 						String plogo = rs.getString(13);
 						int pback = rs.getInt(14);
 				
 
-						ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
+						ProductVO vo = new ProductVO(pno, pname, pbrand, pcat, prodesc, imgfile, imgfile2, imgfile3, imgfile4, psite, pprice, plogo, pback);
 								
 						list.add(vo);
 
@@ -158,8 +155,8 @@ public class ProductSearchDAO {
 						rs = pstmt.executeQuery();
 						while (rs.next()) {
 							
-							int pno1 = rs.getInt(1);
-							String pbrend = rs.getString(2);
+							int pno = rs.getInt(1);
+							String pbrand = rs.getString(2);
 							String pname = rs.getString(3);
 							String prodesc = rs.getString(4);
 							String pcat = rs.getString(5);
@@ -167,14 +164,13 @@ public class ProductSearchDAO {
 							String imgfile2 = rs.getString(7);
 							String imgfile3 = rs.getString(8);
 							String imgfile4 = rs.getString(9);
-							int pno2 = rs.getInt(10);
 							String psite = rs.getString(11);
 							int pprice = rs.getInt(12);
 							String plogo = rs.getString(13);
 							int pback = rs.getInt(14);
 					
 
-							ProductVO vo = new ProductVO(pno1, pbrend, pname, prodesc, pcat, imgfile, imgfile2, imgfile3, imgfile4, pno2, psite, pprice, plogo, pback);
+							ProductVO vo = new ProductVO(pno, pname, pbrand, pcat, prodesc, imgfile, imgfile2, imgfile3, imgfile4, psite, pprice, plogo, pback);
 									
 							list.add(vo);
 
