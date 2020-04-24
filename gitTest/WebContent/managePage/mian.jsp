@@ -6,11 +6,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="../css/topBar.css">
+<!-- <link rel="stylesheet" href="../css/topBar.css"> -->
 <style media="screen">
-  body, .guide{
-    outline: 2px solid gray;
-  }
+html, body {
+	margin: 0;
+ 	padding: 0;
+	background-color: #eee8da;
+	min-height: 80%;
+}
+#container {
+	margin: 0;
+	padding: 0;
+ 	width: 100%;
+ 	height: 100%;
+}
+/* 몸통 */
+#body_container{
+	padding-top: 150px;
+	width: 90%;
+	margin: 0 auto;
+}
 </style>
 </head>
 <%
@@ -37,7 +52,7 @@
 	if(parm.length<=2){
 		uri = fno+".jsp?"+parm[parm.length-1];
 	}else{
-		uri = fno+".jsp";
+		uri = fno+".jsp"; 
 	}
 		
 	//테스트
