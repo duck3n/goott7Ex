@@ -1,20 +1,15 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import VO.hwang_memberVo;
+import connection.OracleXEConnection;
 
 public class hwang_memberDao {
-	final String DRIVER = "oracle.jdbc.driver.OracleDriver";
-	final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-	final String USER = "scott";
-	final String PASSWORD = "tiger";
-
 	StringBuffer sb = new StringBuffer();
 	ResultSet rs = null;
 	PreparedStatement pstmt = null;
@@ -22,18 +17,7 @@ public class hwang_memberDao {
 
 	// 생성자 호출시 db접속이 완료되게 처리
 	public hwang_memberDao() {
-		// TODO Auto-generated constructor stub
-		try {
-			Class.forName(DRIVER);
-			conn = DriverManager.getConnection(URL, USER, PASSWORD);
-			System.out.println(conn);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		conn = OracleXEConnection.getInstance().getConnection();
 
 	}// 생성자 end
 
@@ -225,18 +209,20 @@ public class hwang_memberDao {
 	}// updateData end
 	
 	//전체 회원 이메일 가져오기
-	public String[] getAllEmail() {
-		String[] emailList = null;
+	public ArrayList<String> getAllEmail() {
+		ArrayList<String> emailList = new ArrayList<String>();
 
 		sb.setLength(0);
-		sb.append("select email from member2 ");
+		sb.append("select email from member ");
 
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
 			rs = pstmt.executeQuery();
+			
+			//이메일 집어넣기 
 			while (rs.next()) {		
-				String email = rs.getString("email");			
-
+				emailList.add(rs.getString("email")); 
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
