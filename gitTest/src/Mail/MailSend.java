@@ -1,6 +1,7 @@
 package Mail;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
@@ -18,7 +19,7 @@ import connection.MailAuth;
 
 public class MailSend {
  
-    public void MailSend() {
+    public void MailSend() { 
     	//나중에 수정 할 예정 
     	String subject ="제목이야요";//제목 부분
     	String body = "내용ez 말입니다.";//내용 부분
@@ -39,20 +40,20 @@ public class MailSend {
         try {
             msg.setSentDate(new Date());
             
-            msg.setFrom(new InternetAddress("sidsound123@naver.com", "VISITOR"));     //받는사람메일에 보여질 이름
+            msg.setFrom(new InternetAddress("lchj333@gmail.com", "VISITOR"));     //받는사람메일에 보여질 이름
 
             //DAO 가져옴 
             hwang_memberDao dao = new hwang_memberDao();
             
             //전체 이메일 가져오기
-            String[] emailList = dao.getAllEmail();
+            ArrayList<String> emailList = dao.getAllEmail();
             
             //보낼 회원 수
-            InternetAddress[] toAddr = new InternetAddress[emailList.length]; 
-            
+            InternetAddress[] toAddr = new InternetAddress[emailList.size()]; 
+            System.out.println(emailList);
             //회원 아이디들을  위 배열에 적용
-            for(int x=0; x< emailList.length; x++) {
-            	toAddr[x] = new InternetAddress(emailList[x]); 
+            for(int x=0; x< emailList.size(); x++) {
+            	toAddr[x] = new InternetAddress(emailList.get(x)); 
             }
 
 //            toAddr[4] = new InternetAddress ("AAAAAAAAAA@mail.com"); 
