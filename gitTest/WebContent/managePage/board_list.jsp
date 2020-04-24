@@ -49,6 +49,7 @@
 <style media="screen">
   table {
     width: 90%;
+    text-align: center;
     margin: 0 auto;
   }
   th, td {
@@ -60,11 +61,30 @@
     text-decoration: none;
     color: black;
   }
+  .col1{
+      width: 10%;
+  }
+  .col2{
+      width: 15%;
+  }
   .col3{
-    width: 30%;
+      width: 45%;
+  }
+  .col4{
+      width: 15%;
   }
   .col5{
-    width: 30%;
+      width: 15%;
+  }
+  
+  #title{
+      border-bottom: 1px solid gray;
+  }
+  #btn{
+      border: 1px solid #747474;
+      background-color: rgba(0,0,0,0);
+      color: #747474;
+      border-radius: 5px;
   }
 </style>
 </head>
@@ -131,18 +151,12 @@
 				%>
 			</td>
       <td id="ORbotton">
-        <input type="button" class="btn" value="전체&답변" onclick="reCk()"></input>
+        <input type="button" class="btn" value="전체&답변" id="btn" onclick="reCk()"></input>
       </td>
 		</tr>
 	</table>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript">
-   	$(document).ready(function() {
-  		$("tr:first").css("background-color", "pink");
-  		$("tr:last").css("background-color", "pink");
-  		$("tr:odd").css("background-color", "#DAD9FF");
-
-  	});
     function reCk() {
     	var reck = <%=reflag%>; 
     	

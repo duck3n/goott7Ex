@@ -48,24 +48,39 @@
 		width: 50%;
 		padding: 10px;
 	}
-	#title{
-		border-bottom: 1px solid gray;
-	}
-	table{
-		border-spacing: 0;
-	}
-	.col2{
-		width: 80%;
-	}
-	.col4{
-		width: 20%;
-	}
-	#btn{
-		border: 1px solid #747474;
-		background-color: rgba(0,0,0,0);
-		color: #747474;
-		border-radius: 5px;
-	}
+	table {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  th, td {
+    width: 10%;
+    text-align: center;
+    /* 알맞게 수정 */
+  }
+  td a{
+    text-decoration: none;
+    color: black;
+  }
+  .col2{
+      width: 50%;
+  }
+  .col3{
+      width: 20%;
+  }
+  .col4{
+      width: 30%;
+  }
+  
+  #title{
+      border-bottom: 1px solid gray;
+  }
+  #btn{
+      border: 1px solid #747474;
+      background-color: rgba(0,0,0,0);
+      color: #747474;
+      border-radius: 5px;
+  }
 </style>
 </head>
 <body>
