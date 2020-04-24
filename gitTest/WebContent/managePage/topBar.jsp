@@ -9,7 +9,7 @@ $(function() {
 		console.dir($('#body_container'));
 		$('.navItem').hide();
 		$('.nav').hover(nav_slide);
-	
+
 	});
 });
 //개별 슬라이드 토글
@@ -20,10 +20,46 @@ function nav_slide() {
 	$(item).stop().slideToggle(300);
 }
 //이메일 전송
-function send_Mail() {
-	window.open("../managePage/test_mail.jsp", "", "width=370, height=360, resizable=no, scrollbars=no, status=no");
+function input_Mail() {
+	window.open("../managePage/input_mail.jsp", "", "width=370, height=360, resizable=no, scrollbars=no, status=no");
 }
 </script>
+<style media="screen">
+/* 네비바 CSS */
+#nav_container {
+	height: 60px;
+	width: 100%;
+	background-color: #c4c79d;
+
+	position: fixed;
+	margin-top: 0;
+}
+#nav_local{
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+nav li{
+	float: left;
+	height: 30px;
+	width: 150px;
+	list-style-type: none;
+	text-align: center;
+	padding-top: 5px;
+}
+nav ul{
+	padding: 0;
+	margin-top: 10px;
+}
+li a{
+	text-decoration: none;
+	color: #403732;
+}
+
+#mail_button{
+	padding: 0;
+}
+</style>
 <div class="guide" id="nav_container">
 	<div class="guide" id="nav_local">
 		<nav>
@@ -37,9 +73,12 @@ function send_Mail() {
 					<li class="navItem"><a href="mian.jsp?fno=notice_list">목록</a>
 					<li class="navItem"><a href="mian.jsp?fno=notice_write">등록</a>
 				</ul></li>
-			<li class="nav"><a href="javascript:send_Mail();">광고 발송</a>
+			<li class="nav"><a href="javascript:input_Mail();">광고 발송</a>
 				<ul>
 				</ul></li>
+			<li class="nav"><a href="#">트래픽</a>
+			<ul>
+			</ul></li>
 		</nav>
 	</div>
 </div>
