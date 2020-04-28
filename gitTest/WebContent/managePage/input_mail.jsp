@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="./js/summernote-lite.js"></script>
-<script src="./js/lang/summernote-ko-KR.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../js/summer/summernote-lite.js"></script>
+<script src="../js/summer/lang/summernote-ko-KR.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	// 서머노트 쓰기 활성화
@@ -38,7 +38,7 @@ function submit() {
 }
 
 </script>
-<link rel="stylesheet" href="./css/summernote-lite.css">
+<link rel="stylesheet" href="../css/summer/summernote-lite.css">
 <style type="text/css">
 
 </style>
