@@ -9,13 +9,15 @@
 <script src="../js/summer/summernote-lite.js"></script>
 <script src="../js/summer/lang/summernote-ko-KR.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
+$(function() {
 	// 서머노트 쓰기 활성화
-	$('#summernote').summernote('enable');
+// 	$('#summernote').summernote('enable');
 	
 	//여기 아래 부분
 	$('#summernote').summernote({
 		  height: 300,                 // 에디터 높이
+		  width
+		  : 300,
 		  minHeight: null,             // 최소 높이
 		  maxHeight: null,             // 최대 높이
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
@@ -49,7 +51,7 @@ function submit() {
 	<input type="text" name="tittle" id="tittle" />
 </div>
 <div id="">
-	<textarea name="contents" id="summernote" cols="60" rows="40"></textarea>
+	<textarea name="contents" id="summernote"></textarea>
 </div>
 <div id="">
 	<input type="button" value="발송" onclick="submit()"/>
