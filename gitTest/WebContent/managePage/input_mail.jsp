@@ -16,8 +16,7 @@ $(function() {
 	//여기 아래 부분
 	$('#summernote').summernote({
 		  height: 300,                 // 에디터 높이
-		  width
-		  : 300,
+		  width: 300,
 		  minHeight: null,             // 최소 높이
 		  maxHeight: null,             // 최대 높이
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
@@ -42,18 +41,25 @@ function submit() {
 </script>
 <link rel="stylesheet" href="../css/summer/summernote-lite.css">
 <style type="text/css">
-
+#top{
+	margin-top: 10px;
+	padding: 10px;
+}
+#btns{
+	width: 100px;
+	margin: 0 auto;
+}
 </style>
 </head>
 <body>
-<form action="#" method="get" id="frm">
-<div id="">
+<form action="send_mail.jsp" method="post" id="frm">
+<div id="top">
 	<input type="text" name="tittle" id="tittle" />
 </div>
-<div id="">
+<div id="bottom">
 	<textarea name="contents" id="summernote"></textarea>
 </div>
-<div id="">
+<div id="btns">
 	<input type="button" value="발송" onclick="submit()"/>
 	<input type="button" value="리셋" onclick="reset()"/>
 </div>

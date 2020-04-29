@@ -1,5 +1,6 @@
 package Mail;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,16 +14,20 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import DAO.hwang_memberDao;
 import connection.MailAuth;
 
-public class MailSend {
- 
-    public void MailSend() { 
-    	//나중에 수정 할 예정 
-    	String subject ="제목이야요";//제목 부분
-    	String body = "내용ez 말입니다.";//내용 부분
+public class MailSend{
+    public void MailSend(String subject, String body) { 
+    	//인코딩..
+    	//...
+    	//입력값 가져오기
+    	//...
     	//*************************************************************************
     	
         Properties prop = System.getProperties();
