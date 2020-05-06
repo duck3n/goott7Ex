@@ -7,24 +7,55 @@
 <head>
 <meta charset="UTF-8">
 <title>board_write.jsp</title>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+ integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+ crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#ct').summernote({
+			tabsize : 2,
+			height : 300, // 에디터 높이
+			minHeight : null, // 최소 높이
+			maxHeight : null, // 최대 높이
+			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+			lang : "ko-KR", // 한글 설정
+			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
+
+		});
+	});
+</script>
+<style type="text/css">
+	#container{
+		width: 800px;
+	}
+	#id {
+		block: inline;
+	}
+	#btn{		/* 버튼 꾸미기 */
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
+</style>
 </head>
 <body>
 	<%
-		
 		boardDAO dao = new boardDAO();
-		boardVO vo = new boardVO();
+		boardVO vo = new boardVO(); 
 		
-		String id = "본인ID"; // 임시
-	/* 	String userId=null;
-		if(session.getAttribute("userId")!=null){
-			userId=(String)session.getAttribute("userId");
+		String id=null;
+		if(session.getAttribute("id")!=null){
+			id=(String)session.getAttribute("id");
 		}
-	 */	
-	%>
+	%> 	<!-- form 태그에 hidden 해서 id값 넘기기 -->
 	<form action="board_writeOk.jsp" name="frm">
+		<input type="hidden" name="wr" value="<%=id %>" />
 		<div id="container">
 			<div id="top">
-				<p><h3>문의사항</h3></p>
+				<p><h3>문의사항</h3><p>
 			</div>
 			<div id="writer">
 				<p>
@@ -54,8 +85,7 @@
 				</p>
 			</div>
 			<div id="button">
-				<a href="board_list.jsp"><input type="button" value="목록보기" /></a> <input type="submit" value="작성하기" />
-				<input type="reset" value="초기화" />
+				<a href="board_list.jsp"><input id="btn" type="button" value="목록보기" /></a> <input id="btn" type="submit" value="작성하기" />
 			</div>
 		</div>
 	</form>

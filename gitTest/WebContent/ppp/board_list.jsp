@@ -42,33 +42,58 @@
 	.blist{
 		/* 테이블 가운데로 옮기기 */
 		margin: auto;
-		width: 100%;
-		padding: 10px
+		width: 50%;
+		padding: 0;
 	}
-	.col{
+	#title{
+		border-bottom: 1px solid gray;
+	}
+	table{
 		text-align: center;
+	}
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
+	.col1{
+		width: 15%;
+	}
+	.col2{
+		width: 40%;
+	}
+	.col3{
+		width: 15%;
+	}
+	.col4{
+		width: 15%;
+	}
+	.col5{
+		width: 15%;
 	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
  	$(document).ready(function() {
-		$("tr:first").css("background-color", "pink");
-		$("tr:last").css("background-color", "pink");
-		$("tr:odd").css("background-color", "#DAD9FF");
+		
 	});
 </script>
 </head>
 <body> 
 	<div class="blist">
-		<h3>문의사항</h3>
+		<div id="title">
+			<h3>문의사항</h3>
+		</div>
+		<div id="table">
 		<table>
-			<tr class="col">
-				<th class="col1">글번호</th>
-				<th class="col2">카테고리</th>
-				<th class="col3">제목</th>
-				<th class="col4">작성자</th>
-				<th class="col5">날짜</th>
-				<th class="col6">답변유무</th>
+			<tr class="col" >
+				<!-- <th class="col1">글번호</th> -->
+				<th class="col1">카테고리</th>
+				<th class="col2">제목</th>
+				<th class="col3">작성자</th>
+				<th class="col4">날짜</th>
+				<th class="col5">답변유무</th>
 			</tr>
 			<%
 				ArrayList<boardVO> list = dao.getAllData(startNo, endNo);
@@ -76,12 +101,12 @@
 					if(vo.getStatus()==0 || vo.getStatus()==2){
 			%>
 			<tr class="col">
-				<td class="col1"><%=vo.getBno() %></td>
-				<td class="col2"><%=vo.getCategory() %></td>
-				<td class="col3"><a href="board_detail.jsp?bno=<%=vo.getBno() %>"><%=vo.getTitle() %></a></td>
-				<td class="col4"><%=vo.getMemid() %></td>
-				<td class="col5"><%=vo.getDates() %></td>
-				<td class="col6"><% if(vo.getStatus()==2){
+				<%-- <td class="col1"><%=vo.getBno() %></td> --%>
+				<td class="col1"><%=vo.getCategory() %></td>
+				<td class="col2"><a href="board_detail.jsp?bno=<%=vo.getBno() %>"><%=vo.getTitle() %></a></td>
+				<td class="col3"><%=vo.getMemid() %></td>
+				<td class="col4"><%=vo.getDates() %></td>
+				<td class="col5"><% if(vo.getStatus()==2){
 					%>
 					<p>답변완료</p> <% }else if(vo.getStatus()==0){
 						%>
@@ -109,9 +134,10 @@
 			</tr>
 			
 			<tr>
-				<td colspan="6" class="btn" align="right"><a href="board_write.jsp"><input type="button" value="등록하기" /></a></td>
+				<td colspan="5" class="btn" align="right" style="padding-right: 35px"><a href="board_write.jsp"><input id="btn" type="button" value="등록하기" /></a></td>
 			</tr>
 		</table>
+		</div>
 	</div>
 </body>
 </html>

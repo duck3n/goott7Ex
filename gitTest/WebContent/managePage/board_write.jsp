@@ -12,7 +12,7 @@
 	/* 	String userId=null;
 		if(session.getAttribute("userId")!=null){
 			userId=(String)session.getAttribute("userId");
-		}
+		} 
 	 */	
 	%>
 	<form action="board_writeOk.jsp" name="frm">

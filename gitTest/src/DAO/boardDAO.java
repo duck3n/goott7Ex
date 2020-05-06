@@ -49,6 +49,7 @@ public class boardDAO {
 		sb.append("order by bno desc ) ");
 		sb.append("where rownum <= ? ) ");
 		sb.append("where rn >= ? ");
+		sb.append("order by dates desc ");
 		
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
@@ -138,6 +139,52 @@ public class boardDAO {
 		}
 		return vo;
 	}
+	
+	//미응답 게시글만 가져오기
+	public ArrayList<boardVO> getNeedData(int startNo, int endNo){
+		ArrayList<boardVO> list = new ArrayList<boardVO>();
+		
+		sb.setLength(0);
+		sb.append("select * ");
+		sb.append("from (select rownum rn, bno, title, contents, dates, memid, category, status ");
+		sb.append("from (select * from bqna ");
+		sb.append("order by bno desc ) ");
+		sb.append("where rownum <= ? ) ");
+		sb.append("where rn >= ? and status = 0 ");
+		sb.append("order by dates desc ");
+		
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, endNo);
+			pstmt.setInt(2, startNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int bno = rs.getInt(2);
+				String memid = rs.getString(6);
+				String title = rs.getString(3);
+				String contents = rs.getString(4);
+				String dates = rs.getString(5);
+				String category = rs.getString(7);
+//						String pId = rs.getString(7);
+				int status = rs.getInt(8);
+				
+				boardVO vo = new boardVO();
+				vo.setBno(bno);
+				vo.setTitle(title);
+				vo.setContents(contents);
+				vo.setCategory(category);
+				vo.setDates(dates);
+				vo.setStatus(status);
+				vo.setMemid(memid);
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}// getAllData(startNo, endNo) end
 	
 	public void modifyData(boardVO vo) {
 		sb.setLength(0);

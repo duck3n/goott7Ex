@@ -47,26 +47,30 @@
 		margin: auto;
 		width: 50%;
 		padding: 10px;
-		
-	}
-	.btn{
-		text-align: right;
 	}
 	#title{
 		border-bottom: 1px solid gray;
 	}
+	table{
+		border-spacing: 0;
+	}
+	.col2{
+		width: 80%;
+	}
+	.col4{
+		width: 20%;
+	}
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
- 	$(document).ready(function() {
-		
-		/* $("tr:first").css("background-color", "pink");
-		$("tr:last").css("background-color", "#DAD9FF"); */
-	});
-</script>
 </head>
 <body>
 	<div id="container">
+		<div id="search"> <!-- 여기에 검색기능 붙이기 --> </div>
 		<div id="title">
 			<h3>공지사항 / 이벤트</h3>
 		</div>
@@ -74,11 +78,11 @@
 			<tr>
 				<!-- <th class="col1">글번호</th> 글번호 지움 -> 캐치패션이랑 최대한 비슷하게 할려고요. -->
 				<th class="col2">제목</th>
-				<th colspan="2" class="col3"><!-- 작성자 --></th>
+				<th colspan="3" class="col3"><!-- 작성자 --></th>
 				<th class="col4">날짜</th>
 				<!-- <th class="col5">조회수</th> 조회수도요 -->
 			</tr>
-			<!-- 사용자가 작성한 게시글을 전부 출력해보세요 -->
+			<!-- 사용자가 작성한 게시글을 전부 출력 -->
 			<%
 				ArrayList<noticeVO> list = dao.getAllData(startNo, endNo);
 
@@ -91,7 +95,7 @@
 				<td class="col2"><a
 					href="notice_detail.jsp?bno=<%=vo.getBno()%>"><%=vo.getTitle()%></a>
 				</td>
-				<td colspan="2" class="col3"><%-- <%=vo.getWriter()%> --%></td>
+				<td colspan="3" class="col3"><%-- <%=vo.getWriter()%> --%></td>
 				<td class="col4"><%=vo.getRegdate()%></td>
 				<%-- <td class="col5"><%=vo.getHits()%></td> --%>
 
@@ -101,8 +105,8 @@
 				}
 			%>
 			<tr>
-				<td colspan="4" id="page">
-					<%
+				<td colspan="4" id="page" align="center">
+						<%
 						for (int i = currentPage - 3; i < totalPage + 3; i++) {
 							if (i <= 0) {
 								continue;
@@ -119,10 +123,19 @@
 
 			<tr>
 				<!-- 등록 버튼은 admin만 보일 수 있게 하기 -->
-				<td colspan="4" class="btn"><a href="notice_write.jsp"><input
+				<%
+					String id=null;
+					if(session.getAttribute("id")!=null){
+						id = (String)session.getAttribute("id");	//ex) 관리자 아이디는 admin이라면, 
+						if(id.equalsIgnoreCase("admin")){			// id가  admin이면 등록 버튼 보이게 하기,
+				%>
+				<td colspan="5" class="btn" align="right"><a href="notice_write.jsp"><input id="btn"
 						type="button" value="등록" /></a></td>
+				<%
+						}
+					}
+				%>
 			</tr>
-
 		</table>
 	</div>
 </body>

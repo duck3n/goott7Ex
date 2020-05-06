@@ -11,7 +11,7 @@
 	
 	/* out.println(title+contents+no+category); */
 	
-	if(no!=null){
+	if(no!=null){ 
 		int bno = Integer.parseInt(no);
 		
 		boardDAO dao = new boardDAO();
@@ -23,9 +23,9 @@
 		
 		dao.modifyData(vo);
 		
-		response.sendRedirect("board_list.jsp");
+		response.sendRedirect("mian.jsp?fno=board_list");
 	}else {
-		response.sendRedirect("board_list.jsp");
+		response.sendRedirect("mian.jsp?fno=board_list");
 	}
 	
 %>

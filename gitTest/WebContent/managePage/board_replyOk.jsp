@@ -9,9 +9,9 @@
 	String comments = request.getParameter("comm");
 	
 	//세션으로 가져와서 현재 아이디 삽입하기
-	String id = "휴나";
+	String id = (String)session.getAttribute("id");
 	
-	if(b!=null){
+	if(b!=null){ 
 		int bno = Integer.parseInt(b);
 		out.println(bno+id+comments);
 		
@@ -26,8 +26,8 @@
 		//댓글 상태 유무 변경
 		new boardDAO().addComm(bno); 
 		
-		response.sendRedirect("board_detail.jsp?bno="+bno);
+		response.sendRedirect("mian.jsp?fno=board_detail&bno="+bno);
 	}else {
-		response.sendRedirect("board_list.jsp");
+		response.sendRedirect("mian.jsp?fno=board_list");
 	}
 %>

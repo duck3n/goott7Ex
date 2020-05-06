@@ -12,12 +12,12 @@
 	
 	boardVO vo = new boardVO();
 	boardDAO dao = new boardDAO();
-	
+	 
 	vo.setTitle(title);
 	vo.setContents(contents);
 	vo.setCategory(category);
 	dao.addData(vo);
 	
-	response.sendRedirect("board_list.jsp");
+	response.sendRedirect("mian.jsp");
 %>
 	

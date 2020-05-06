@@ -4,7 +4,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>write.jsp</title>
+<title>notice_write.jsp</title>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+ integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+ crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#ct').summernote({
+			tabsize : 2,
+			height : 300, // 에디터 높이
+			minHeight : null, // 최소 높이
+			maxHeight : null, // 최대 높이
+			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+			lang : "ko-KR", // 한글 설정
+			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
+
+		});
+	});
+</script>
+<style type="text/css">
+	#container{
+		width: 800px;
+	}
+	#btn{
+		border: 1px solid #747474;
+		background-color: rgba(0,0,0,0);
+		color: #747474;
+		border-radius: 5px;
+	}
+</style>
 </head>
 <body>
 	<%
@@ -50,8 +80,8 @@
 				</p>
 			</div>
 			<div id="button">
-				<input type="button" value="목록보기" /> <input type="submit"
-					value="작성하기" /> <input type="reset" value="초기화" />
+				<a href="notice_list.jsp"><input id="btn" type="button" value="목록보기" /></a> <input id="btn" type="submit"
+					value="작성하기" />
 			</div>
 		</div>
 	</form>

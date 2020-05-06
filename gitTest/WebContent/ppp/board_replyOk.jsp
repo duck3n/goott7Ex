@@ -7,10 +7,10 @@
 <!-- board_replyOk.jsp -->
 <%
 	String b = request.getParameter("bno");
-	String id = "휴나";
+	String id = (String)session.getAttribute("id");		//세션으로 아이디 값 가져와서 삽입하기.
 	String comments = request.getParameter("comm");
 	
-	if(b!=null){
+	if(b!=null){	
 		int bno = Integer.parseInt(b);
 		out.println(bno+id+comments);
 		
