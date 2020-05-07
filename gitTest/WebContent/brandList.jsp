@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!--자바 class 를 호출해준다   -->
-<%@page import="project.mostBrand"%>
+<%@page import="DAO.mostBrand"%>
 <!DOCTYPE html>
 <html>
 <head>

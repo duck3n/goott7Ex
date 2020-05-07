@@ -1,4 +1,4 @@
-package project;
+package DAO;
 //이미지 파일을 배열로 담아서 jsp 에서 호출할 메소드를 만듬 
 
 public class mostBrand {
