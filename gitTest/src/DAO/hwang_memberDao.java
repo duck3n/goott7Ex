@@ -5,8 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import VO.hwang_memberVo;
+import connection.ConnectionManager;
 import connection.OracleXEConnection;
 
 public class hwang_memberDao {
@@ -14,12 +19,22 @@ public class hwang_memberDao {
 	ResultSet rs = null;
 	PreparedStatement pstmt = null;
 	Connection conn = null;
+	
+	private SqlSession ss;
 
 	// 생성자 호출시 db접속이 완료되게 처리
 	public hwang_memberDao() {
 		conn = OracleXEConnection.getInstance().getConnection();
+		
+		SqlSessionFactory factory = ConnectionManager.getInstance().getFactory();
+        ss = factory.openSession(true);
 
 	}// 생성자 end
+	
+	//전체 회원 이메일 가져오기
+	public List<String> getAllEmail() {
+		return ss.selectList("getAllEamilByMember");
+	}// getAllData end
 
 	// 멤버 추가
 	public void addData(hwang_memberVo vo) {
@@ -208,28 +223,6 @@ public class hwang_memberDao {
 		}
 	}// updateData end
 	
-	//전체 회원 이메일 가져오기
-	public ArrayList<String> getAllEmail() {
-		ArrayList<String> emailList = new ArrayList<String>();
-
-		sb.setLength(0);
-		sb.append("select email from member ");
-
-		try {
-			pstmt = conn.prepareStatement(sb.toString());
-			rs = pstmt.executeQuery();
-			
-			//이메일 집어넣기 
-			while (rs.next()) {		
-				emailList.add(rs.getString("email")); 
-				
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return emailList;
-	}// getAllData end
 
 	
 	

@@ -6,18 +6,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import VO.boardVO;
+import connection.ConnectionManager;
 import connection.OracleXEConnection;
 
 public class boardDAO {
-	StringBuffer sb = new StringBuffer();
-	ResultSet rs = null;
-	PreparedStatement pstmt = null;
-	Connection conn = null;
-	
+	private SqlSession ss;
+
 	public boardDAO() {
-		conn = OracleXEConnection.getInstance().getConnection();
-	}
+        SqlSessionFactory factory = ConnectionManager.getInstance().getFactory();
+        ss = factory.openSession(true);
+    }
 	
 	public void addData(boardVO vo) {
 		sb.setLength(0);
