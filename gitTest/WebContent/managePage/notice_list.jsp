@@ -3,39 +3,7 @@
 <%@page import="DAO.noticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	/* 페이징 처리 */
-
-	// 현재 페이지(current Page) 얻어오기
-	String cp = request.getParameter("cp");
-
-	int currentPage = 0; // null 처리와 함께 숫자처리 (초기화,?) 
-
-	if (cp != null) {
-		currentPage = Integer.parseInt(cp);
-	} else {
-		currentPage = 1;
-	}
-
-	noticeDAO dao = new noticeDAO();
- 
-	// 총 게시글 수 
-	int totalCount = dao.getTotalCount();
-
-	// 한 페이지당 레코드 수 : 10개
-	int recordByPage = 10;
-
-	// 총 페이지 수
-	int totalPage = // (totalCount%recordByPage==0) -> 10단위로 나눠지면. 삼항 연산자
-			(totalCount % recordByPage == 0) ? totalCount / recordByPage : totalCount / recordByPage + 1;
-
-	// 현재 페이지 - 레코드 시작번호
-	int startNo = (currentPage - 1) * recordByPage + 1;
-
-	// 현재 페이지 - 레코드 끝번호
-	int endNo = currentPage * recordByPage;
-
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,6 +52,7 @@
 </style>
 </head>
 <body>
+	<jsp:include page="topBar.jsp"></jsp:include>
   	<div class="guide" id="body_container">
   	<%-- 몸통 부분 --%>
 		<div id="search"> <!-- 여기에 검색기능 붙이기 --> </div>
@@ -100,7 +69,7 @@
 			</tr>
 			<!-- 사용자가 작성한 게시글을 전부 출력 -->
 			<%
-				ArrayList<noticeVO> list = dao.getAllData(startNo, endNo);
+				ArrayList<noticeVO> list = dao.getAllData();
 
 				for (noticeVO vo : list) {
 					if (vo.getStatus() == 0 || vo.getStatus() == 2) {
