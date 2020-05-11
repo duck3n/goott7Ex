@@ -1,0 +1,5 @@
+액션 패키지에 실질적으로 수행하는 액션.java 파일들을 넣으면 됨다.
+
+ex) ListAcion.java, board_detail.java ...
+
+ListAcion.java 여기에 대충 뼈대 만들었음.
