@@ -31,9 +31,16 @@
 	<!-- 전체 게시물 페이징 -->
 	<select id="getAllDataNotice" parameterType="Map" resultType="VO.noticeVO">
 		select *
-		from nitice
+		from notice
 		order by bno desc
-		limit #{startNo}, #{endNo}
+		limit #{startNo}, #{viewRowCount}
+	</select>
+	
+	<!-- 데이터 한 건 조회 -->
+	<select id="getOneDataNotice" parameterType="int" resultType="VO.noticeVO">
+		select *
+		from notice
+		where bno = ${bno}
 	</select>
 	
 	<update id="updateOneNotice" parameterType="VO.noticeVO">
