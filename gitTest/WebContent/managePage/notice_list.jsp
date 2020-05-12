@@ -68,58 +68,38 @@
 				<!-- <th class="col5">조회수</th> 조회수도요 -->
 			</tr>
 			<!-- 사용자가 작성한 게시글을 전부 출력 -->
-			<%
-				ArrayList<noticeVO> list = dao.getAllData();
-
-				for (noticeVO vo : list) {
-					if (vo.getStatus() == 0 || vo.getStatus() == 2) {
-			%>
-
+		<c:forEach items="${noticeList}" var="vo">
 			<tr>
 				<%-- <td class="col1"><%=vo.getBno()%></td> --%>
 				<td class="col2"><a
-					href="mian.jsp?fno=notice_detail&bno=<%=vo.getBno()%>"><%=vo.getTitle()%></a>
+					href="notice.do?cmd=detail&bno=${vo.bno}"><c:out value="${vo.title}"/></a>
 				</td>
 				<td colspan="3" class="col3"><%-- <%=vo.getWriter()%> --%></td>
-				<td class="col4"><%=vo.getRegdate()%></td>
+				<td class="col4"><c:out value="${vo.regdate}"/></td>
 				<%-- <td class="col5"><%=vo.getHits()%></td> --%>
 
 			</tr>
-			<%
-				}
-				}
-			%>
+		</c:forEach>
 			<tr>
 				<td colspan="4" id="page" align="center">
-						<%
-						for (int i = currentPage - 3; i < totalPage + 3; i++) {
-							if (i <= 0) {
-								continue;
-							} else if (i > totalPage) {
-								break;
-							} else {
-					%> <a href="mian.jsp?fno=notice_list&cp=<%=i%>"><span id="page"><%=i%></span></a>
-					<%
-						} // if end
-						} // for end
-					%>
+<!-- 						for (int i = currentPage - 3; i < totalPage + 3; i++) {
+ 							if (i <= 0) {
+ 								continue;
+ 							} else if (i > totalPage) {
+ 								break;
+ 							} else { -->
+					 <a href="notice.do?cmd=list&cp=1"><span id="page">1</span></a>
+<!-- 						} // if end
+ 						} // for end -->
 				</td>
 			</tr>
 
 			<tr>
 				<!-- 등록 버튼은 admin만 보일 수 있게 하기 -->
-				<%
-					String id=null;
-					if(session.getAttribute("id")!=null){
-						id = (String)session.getAttribute("id");	//ex) 관리자 아이디는 admin이라면, 
-						if(id.equalsIgnoreCase("admin")){			// id가  admin이면 등록 버튼 보이게 하기,
-				%>
-				<td colspan="5" align="right"><a href="mian.jsp?fno=notice_write"><input id="btn"
-						type="button" class="btn" value="등록" /></a></td>
-				<%
-						}
-					}
-				%>
+				<td colspan="5" align="right">
+					<a href="notice.do?cmd=write">
+						<input id="btn" type="button" class="btn" value="등록" />
+				</a></td>
 			</tr>
 
 		</table>

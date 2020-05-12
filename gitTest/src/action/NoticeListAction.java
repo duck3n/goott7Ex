@@ -17,15 +17,23 @@ public class NoticeListAction implements Action{
 		
 		noticeDAO dao = new noticeDAO();
 		
-		String no = req.getParameter("pno");
-		if(no != null) {
-			pno = Integer.parseInt(no);
-		}
+//		String no = req.getParameter("pno");
+//		if(no != null) {
+//			pno = Integer.parseInt(no);
+//		}
+		
+//		System.out.println(req.getParameter("cmd"));
+//		System.out.println("dd");
+		
+		
+		
+		
+		
 		
 		List<noticeVO> list = dao.getAllData(pno);
 		req.setAttribute("noticeList", list);
 		
-		return "/managePage/notice_list.jsp"; 
+		return "notice_list.jsp"; 
 	}
 
 }
