@@ -33,7 +33,8 @@ public class hwang_memberDao {
 	
 	//전체 회원 이메일 가져오기
 	public List<String> getAllEmail() {
-		return ss.selectList("getAllEamilByMember");
+		List<String> list = ss.selectList("getAllEamilByMember");
+		return list; 
 	}// getAllData end
 
 	// 멤버 추가
