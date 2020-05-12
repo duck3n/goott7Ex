@@ -1,9 +1,9 @@
 package Mail;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -51,7 +51,7 @@ public class MailSend{
             hwang_memberDao dao = new hwang_memberDao();
             
             //전체 이메일 가져오기
-            ArrayList<String> emailList = dao.getAllEmail();
+            List<String> emailList = dao.getAllEmail();
             
             //보낼 회원 수
             InternetAddress[] toAddr = new InternetAddress[emailList.size()]; 
@@ -86,6 +86,5 @@ public class MailSend{
         }
                 
     }
-
 
 }
