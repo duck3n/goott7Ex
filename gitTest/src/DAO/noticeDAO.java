@@ -12,8 +12,8 @@ import connection.ConnectionManager;
 
 public class noticeDAO {
 	private SqlSession ss;
-	private final int postCount = 15; //한 페이지당 불러올 게시글 수 설정
-	private int pageCount = 1;
+	private final int viewRowCount = 15; //페이지 당 출력할 게시글 수
+	private int pageCount; //페이지 총 갯수
 
 	public noticeDAO() {
         SqlSessionFactory factory = ConnectionManager.getInstance().getFactory();
@@ -21,18 +21,18 @@ public class noticeDAO {
     }
 	
 	public List<noticeVO> getAllData(int pno) {
-		Map<String, Integer> nums = new HashMap<String, Integer>(); //데이터 : startNo번째 게시물, endNo번째 게시물 
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		int startNo = 0;
 		
-		int total = getTotalCount();//총 게시물 리턴
-		pageCount = (total / postCount) + 1; //페이지 갯수 계산
-		int lastCount = total % postCount; //마지막 페이지 게시글 수
+//		int total = getTotalCount();//총 게시물 리턴
+//		pageCount = (total / postCount) + 1; //페이지 갯수 계산
+//		int lastRowCount = total % 15; //마지막 페이지 게시글 수
+//		
+//		if (total%15 > 0) pageCount++; //나머지 존재시 페이지 하나 더 할당
 		
-		
-		
-		nums.put("startNo", pageCount*);
-		nums.put("endNo", (pageCount*));
-		
-		return ss.selectList("getAllDataNotice", nums); //List<noticeVO>형태로 리턴
+		map.put("startNo", startNo);
+		map.put("viewRowCount", viewRowCount);
+		return ss.selectList("getAllDataNotice", map); //List<noticeVO>형태로 리턴
 	}// getAllData(startNo, endNo) end
 	
 	
@@ -44,9 +44,8 @@ public class noticeDAO {
 		ss.insert("insertOneNotice",vo);
 	}// addData() end
 
-	public noticeVO getData(int bno) {
-
-		return null;
+	public noticeVO getOneData(int bno) {
+		return ss.selectOne("getOneDataNotice", bno);
 	}// getData() end
 
 
