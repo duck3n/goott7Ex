@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>board_write.jsp</title>
+<script type="text/javascript">
+	function goList() {
+		location.href="notice.do?cmd=list";
+	}
+</script>
 </head>
 <body>
 	<%
@@ -15,7 +20,8 @@
 		} 
 	 */	
 	%>
-	<form action="board_writeOk.jsp" name="frm">
+	<form action="notice.do" name="frm">
+		<input type="hidden" name="cmd" value="write" />
 		<div id="container">
 			<div id="top">
 				<p><h3>문의사항</h3></p>
@@ -48,7 +54,7 @@
 				</p>
 			</div>
 			<div id="button">
-				<input type="button" value="목록보기" /> <input type="submit" value="작성하기" />
+				<input type="button" onclick="goList()" value="목록보기" /> <input type="submit" value="작성하기" />
 				<input type="reset" value="초기화" />
 			</div>
 		</div>

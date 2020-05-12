@@ -98,7 +98,7 @@ reId{text-align: center;}
 		<tr>
 			<td>
 				<input type="button" value="관리" id="btn" class="status"/>
-				<a href="mian.jsp">
+				<a href="/notice.do?cmd=list">
 					<input type="button" class="ctl_btn" id="btn" value="목록"/>
 				</a>
 			</td> 

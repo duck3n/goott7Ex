@@ -5,23 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>write.jsp</title>
+<script type="text/javascript">
+	function goList() {
+		location.href="notice.do?cmd=list";
+	}
+</script>
 </head>
 <body>
 	<%
 		// 관리자만 쓸 수 있음.
 		//로긴한사람이라면, userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
 
-		String adminId = null;
-		if (session.getAttribute("id") != null) { 
-			adminId = (String) session.getAttribute("id");
-		}else if(adminId==null){
+// 		String adminId = null;
+// 		if (session.getAttribute("id") != null) { 
+// 			adminId = (String) session.getAttribute("id");
+// 		}else if(adminId==null){
 // 			response.sendRedirect("mian.jsp");
-		}
+// 		}
 		
 	%>
 	<!-- form은 name을 통해 데이터를 보낼 수 있음 : request.getParameter("이름") -->
-	<form action="notice_writeOk.jsp" name="frm">
-	<input type="hidden" name="adminId" value="<%=adminId%>">
+	<form action="notice.do" name="frm" >
+	<input type="hidden" name="cmd" value="writeOk" />
+	<input type="hidden" name="adminId" value="admin">
 		<div id="container">
 			<div id="top">
 				<p>
@@ -48,7 +54,7 @@
 				</p>
 			</div>
 			<div id="button">
-				<input type="button" value="목록보기" /> 
+				<input type="button" onclick="goList()" value="목록보기" /> 
 				<input type="submit" value="작성하기" /> 
 				<input type="reset" value="초기화" />
 			</div>

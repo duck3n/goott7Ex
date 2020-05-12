@@ -63,17 +63,17 @@ li a{
 <div class="guide" id="nav_container">
 	<div class="guide" id="nav_local">
 		<nav>
-			<li class="nav"><a href="mian.jsp">문의게시판</a>
+			<li class="nav"><a href="board.do">문의게시판</a>
 				<ul>
-					<li class="navItem"><a href='mian.jsp'>전체 목록</a></li>
-					<li class="navItem"><a href="mian.jsp?fno=board_list&flag=true">답변</a></li>
+					<li class="navItem"><a href='board.do?cmd=list'>전체 목록</a></li>
+					<li class="navItem"><a href="board.do?cmd=needa">미답변</a></li>
 				</ul></li>
-			<li class="nav"><a href="mian.jsp?fno=notice_list">공지사항</a>
+			<li class="nav"><a href="notice.do">공지사항</a>
 				<ul>
-					<li class="navItem"><a href="mian.jsp?fno=notice_list">목록</a>
-					<li class="navItem"><a href="mian.jsp?fno=notice_write">등록</a>
+					<li class="navItem"><a href="notice.do?cmd=list">목록</a>
+					<li class="navItem"><a href="notice.do?cmd=write">등록</a>
 				</ul></li>
-			<li class="nav"><a href="javascript:input_Mail();">광고 발송</a>
+			<li class="nav"><a target="_blank" href="mail.do">광고 발송</a>
 				<ul>
 				</ul></li>
 			<li class="nav"><a href="#">트래픽</a>

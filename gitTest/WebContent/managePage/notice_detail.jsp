@@ -2,22 +2,6 @@
 <%@page import="DAO.noticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	/* 게시글 번호로 불러와서 가져오기 */
-	String no = request.getParameter("bno");
-	noticeDAO dao = new noticeDAO();
-	noticeVO vo = new noticeVO();
-	
-	int bno=0;
-	
-	if(no!=null){
-		bno = Integer.parseInt(no);
-		dao.raiseHits(bno);
-		vo = dao.getData(bno);
-	}else{
-		response.sendRedirect("mian.jsp?fno=notice_list");
-	}
-%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,20 +13,20 @@
 // 		삭제 기능
 		$('.delConfirm').on('click',function(){ 
 			var flag = confirm("삭제하시겠습니까?");
-			var bno = <%=vo.getBno() %>
+			var bno = ${vo.bno}
 			
 			if(flag){
 				document.frm.submit();
-				location.href = "notice_deleteOk.jsp?bno=<%=vo.getBno()%>";
+				location.href = "notice_deleteOk.jsp?bno="+${vo.bno};
 			}
 		});
 // 		블라인드 처리
 		$('.status').on('click',function(){
 			var flag0 = confirm("블라인드 처리하시겠습니까?");
-			var bno = <%=vo.getBno()%>
+			var bno = ${vo.bno}
 			
 			if(flag0){
-				location.href="notice_blindOk.jsp?bno=<%=vo.getBno()%>";
+				location.href="notice_blindOk.jsp?bno="+${vo.bno};
 			}
 		});
 	});
@@ -61,34 +45,36 @@
 </style>
 </head>
 <body>
-	<form action="mian.jsp?fno=notice_Write" name="frm">
-		<input type="hidden" name="no" id="no" />
+	<jsp:include page="topBar.jsp"/>
+	<form action="notice.do" name="frm">
+		<input type="hidden" name="cmd" id="modify" />
+		<input type="hidden" name="bno" id="bno" />
 	<div id="cont">
 		<table>
 			<tr id="title">
 				<!-- <th>제목</th> -->
-				<td colspan="5"><h3><%=vo.getTitle() %></h3>
+				<td colspan="5"><h3>${vo.title}</h3>
 					<!-- <input type="button" value="관리" id="status" /> only 관리자모드 -->
 				</td>
 			</tr>
 			<tr id="info">
 				<!-- <th id="t1">글쓴이</th> -->
-				 <td><%=vo.getWriter() %></td>
+				 <td>${vo.writer}</td>
  				<th id="t3" colspan="5"><!-- 작성일 --></th>
-				<td><%=vo.getRegdate() %></td>
+				<td>${vo.regdate}</td>
 			</tr>
 			<tr></tr>
 			<tr id="contents">
 				<!-- <th>내용</th> -->
 				<td colspan="5">
-					<%=vo.getContents()%>
+					${vo.contents}
 				</td>
-			</tr>
+			</tr>    
 			<tr>
 				<td colspan="5">
 				<br />
-					<a href="mian.jsp?fno=notice_list"><input type="button" id="btn" value="목록" /></a>
-					<a href="mian.jsp?fno=notice_modify&bno=<%=vo.getBno() %>"><input type="button" id="btn" value="수정" /></a>
+					<a href="notice.do?cmd=list"><input type="button" id="btn" value="목록" /></a>
+					<a href="notice.do?cmd=modify&bno=${vo.bno}"><input type="button" id="btn" value="수정" /></a>
 				</td>
 			</tr>
 		</table>
