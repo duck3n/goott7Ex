@@ -12,22 +12,10 @@
 </script>
 </head>
 <body>
-	<%
-		// 관리자만 쓸 수 있음.
-		//로긴한사람이라면, userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
-
-// 		String adminId = null;
-// 		if (session.getAttribute("id") != null) { 
-// 			adminId = (String) session.getAttribute("id");
-// 		}else if(adminId==null){
-// 			response.sendRedirect("mian.jsp");
-// 		}
-		
-	%>
 	<!-- form은 name을 통해 데이터를 보낼 수 있음 : request.getParameter("이름") -->
 	<form action="notice.do" name="frm" >
 	<input type="hidden" name="cmd" value="writeOk" />
-	<input type="hidden" name="adminId" value="admin">
+	<input type="hidden" name="memid" value="${member.memid}" />
 		<div id="container">
 			<div id="top">
 				<p>
