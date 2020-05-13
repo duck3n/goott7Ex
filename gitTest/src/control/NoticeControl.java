@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.InsertFormAction;
+import action.NoticeDeleteAction;
+import action.NoticeWriteAction;
+import connection.LoginAdmin;
 import action.NoticeDetailAction;
 import action.NoticeListAction;
 
@@ -29,6 +31,9 @@ public class NoticeControl extends HttpServlet{
 	}
 	
 	public void doProcess(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		//테스트용 어드민 계정 모드
+		new LoginAdmin(req, resp);
+		
 		//인코딩
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
@@ -40,15 +45,15 @@ public class NoticeControl extends HttpServlet{
 		
 		if(cmd==null || cmd.equalsIgnoreCase("list")) { //파라미터값이 없거나 "list"라면
 			System.out.println("list");
-			model = new NoticeListAction();					//인터페이스에 리스트액션객체 삽입
-		}else if(cmd.equalsIgnoreCase("insertForm")) {	//파라미터값이 "insertForm"이면
-			System.out.println("insertForm");
-			//글 작성 페이지				
-		}else if(cmd.equalsIgnoreCase("write")) {		//
+			model = new NoticeListAction();				//인터페이스에 리스트액션객체 삽입
+		}else if(cmd.equalsIgnoreCase("write")) {		//파라미터값이 "write"이면
 			System.out.println("write");
-			model = new InsertFormAction();				//인터페이스에 insertForm액션객체 삽입
+			model = new NoticeWriteAction();			//인터페이스에 write액션객체 삽입
+			//글 작성 페이지				
+		}else if(cmd.equalsIgnoreCase("writeOk")) {		//
+			System.out.println("writeOk");
+			model = new NoticeWriteAction();			//인터페이스에 insertForm액션객체 삽입
 			//실제 글 작성 기능 수행
-//			model = new WriteAction();					//
 		}else if(cmd.equalsIgnoreCase("detail")) {		//
 			System.out.println("detail");
 			model = new NoticeDetailAction();			//
@@ -60,7 +65,7 @@ public class NoticeControl extends HttpServlet{
 //			model = new ModifyWriteAction();			//
 		}else if(cmd.equalsIgnoreCase("delete")) {		//
 			System.out.println("delete");
-//			model = new DeleteAction();					//
+			model = new NoticeDeleteAction();					//
 		}
 		
 		try {
