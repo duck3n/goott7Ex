@@ -27,9 +27,9 @@ public class NoticeDetailAction implements Action{
 		System.out.println(req.getParameter("bno"));
 		
 		if(no != null & !no.isEmpty()) {
-			return "/managePage/notice_detail.jsp";//값이 존재할 때
+			return "managePage/notice_detail.jsp";//값이 존재할 때
 		}else {
-			return "/notice.do?cmd=list";//값이 없을 때
+			return "notice.do?cmd=list";//값이 없을 때
 		}
 	}
 }

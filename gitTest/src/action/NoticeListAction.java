@@ -33,7 +33,7 @@ public class NoticeListAction implements Action{
 		List<noticeVO> list = dao.getAllData(pno);
 		req.setAttribute("noticeList", list);
 		
-		return "notice_list.jsp"; 
+		return "managePage/notice_list.jsp"; 
 	}
 
 }
