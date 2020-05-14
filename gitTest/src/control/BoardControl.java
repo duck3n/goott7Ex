@@ -31,6 +31,7 @@ public class BoardControl extends HttpServlet{
 		Action model = null; //초기화(액션 객체 담을 인터페이스)
 		
 		if(cmd==null || cmd.equalsIgnoreCase("list")) { //파라미터값이 없거나 "list"라면
+			
 		}else if(cmd.equalsIgnoreCase("insertForm")) {	//파라미터값이 "insertForm"이면
 			//글 작성 페이지				
 			

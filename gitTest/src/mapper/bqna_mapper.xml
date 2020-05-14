@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	문의게시판 테이블 시퀀스 생성
+	CREATE TABLE test_board( seq INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(20) NOT NULL );
+ -->
+  
+<mapper namespace=" ">
+<!-- 
+	<select id="getAllDatabqna" parameterType="Map" resultType="VO.bqnaVO">
+		select *
+		from (select rownum rn, bno, title, writer, contents, hits, regdate, status, category
+				from(select * from bqna
+						order by bno desc )
+				where rownum <= #{rownum} )
+		where rn >= #{rn}
+		order by regdate desc
+	</select>
+-->
+	<!-- 공지사항 게시물 토탈 카운팅 -->
+	<select id="getTotalCountBqna" resultType="int">
+		select count(*) cnt
+		from bqna
+	</select>
+	<!-- 전체 게시물 페이징 -->
+	<select id="getAllDataBqna" parameterType="Map" resultType="VO.boardVO">
+		select *
+		from bqna
+		order by bno desc
+		limit #{startNo}, #{viewRowCount}
+	</select>
+	<!-- 데이터 한 건 조회 -->
+	<select id="getOneDataBqna" parameterType="int" resultType="VO.boardVO">
+		select *
+		from bqna
+		where bno = ${bno}
+	</select>
+	
+	<insert id="insertOneBqna" parameterType="VO.boardVO">
+		insert into bqna (status, hits, title, memid, contents, dates, category)
+		values (0, 0, ${title}, ${memid}, ${contents}, now(), ${category})
+	</insert>
+	
+	<update id="updateOneBqna" parameterType="VO.boardVO">
+		update bqna 
+		set title = #{title}, contents = #{contents}, category = #{category}, dates = now()
+		where bno = #{bno}
+	</update>
+	<!-- 게시물 삭제 -->
+	<delete id="deleteOneBqna" parameterType="int">
+		delete bqna 
+		where bno = #{bno} 
+	</delete>
+	<!-- 조회수 늘리기 -->
+	<update id="raiseHitsBqna" parameterType="int">
+		update bqna 
+		set hits = hits+1 
+		where bno = #{bno}
+	</update>
+	<!-- 게시물 블라인드 처리 -->
+	<update id="blindOneBqna" parameterType="int">
+		update bqna 
+		set status = 1 
+		where bno = #{bno} 
+	</update>
+</mapper>

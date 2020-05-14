@@ -1,26 +1,37 @@
- <%@page import="VO.noticeVO"%>
-<%@page import="DAO.noticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- notice_writeOk.jsp -->
-<%
-	String adminId = request.getParameter("adminId");
-	String title = request.getParameter("ti");
-	String contents = request.getParameter("ct");
-	String ctg = request.getParameter("ctg");
-	
-	out.println(title+", "+contents);
-	
-	// DB 연결
-	noticeDAO dao = new noticeDAO();
-	noticeVO vo = new noticeVO();
-	
-	vo.setWriter(adminId);
-	vo.setTitle(title);
-	vo.setContents(contents);
-	vo.setCategory(ctg);
-	
-	dao.addData(vo);
-	
-	response.sendRedirect("mian.jsp?fno=notice_list");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>waiting page</title>
+<script type="text/javascript">
+	window.onload = function() {
+		setTimeout(function() {
+			location.href = "../notice.do?cmd=list";
+		},2000);
+	}
+</script>
+<style type="text/css">
+#title{
+	margin: 100px 50px;
+	width: 100px;
+}
+#wait{
+	margin: 50px 50px;
+	font-size: 15px;
+}
+</style>
+</head>
+<body>
+	<div id="title">
+		<h2>
+			제목 : <c:out value="${sessionScope.title}"/>
+		</h2>
+	</div>
+	<div id="wait">
+		잠시후 목록으로 이동합니다..
+	</div>
+</body>
+</html>

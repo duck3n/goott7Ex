@@ -15,7 +15,7 @@
 	<!-- form은 name을 통해 데이터를 보낼 수 있음 : request.getParameter("이름") -->
 	<form action="notice.do" name="frm" >
 	<input type="hidden" name="cmd" value="writeOk" />
-	<input type="hidden" name="memid" value="${member.memid}" />
+	<input type="hidden" name="memid" value="hello" />
 		<div id="container">
 			<div id="top">
 				<p>
