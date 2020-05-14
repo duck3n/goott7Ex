@@ -8,10 +8,6 @@
  -->
   
 <mapper namespace=" ">
-	<select id="insertOneNotice" parameterType="VO.noticeVO">
-		insert into notice(title, writer, contents, regdate, status, hits, category)
-		values (#{title}, #{writer}, #{contents}, now(), 0, 0, #{category})
-	</select>
 <!-- 
 	<select id="getAllDataNotice" parameterType="Map" resultType="VO.noticeVO">
 		select *
@@ -35,13 +31,17 @@
 		order by bno desc
 		limit #{startNo}, #{viewRowCount}
 	</select>
-	
 	<!-- 데이터 한 건 조회 -->
 	<select id="getOneDataNotice" parameterType="int" resultType="VO.noticeVO">
 		select *
 		from notice
-		where bno = ${bno}
+		where bno = #{bno}
 	</select>
+	
+	<insert id="insertOneNotice" parameterType="Map">
+		insert into notice (status, hits, title, writer, contents, regdate, category)
+		values (0, 0, #{title}, #{writer}, #{contents}, sysdate, #{category})
+	</insert>
 	
 	<update id="updateOneNotice" parameterType="VO.noticeVO">
 		update notice 

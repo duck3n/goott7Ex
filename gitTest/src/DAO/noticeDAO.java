@@ -13,7 +13,6 @@ import connection.ConnectionManager;
 public class noticeDAO {
 	private SqlSession ss;
 	private final int viewRowCount = 15; //페이지 당 출력할 게시글 수
-	private int pageCount; //페이지 총 갯수
 
 	public noticeDAO() {
         SqlSessionFactory factory = ConnectionManager.getInstance().getFactory();
@@ -40,8 +39,8 @@ public class noticeDAO {
 		return ss.selectOne("getTotalCountNotice");
 	}
 	
-	public void addData(noticeVO vo) {
-		ss.insert("insertOneNotice",vo);
+	public void addData(Map<String, String> mvo) {
+		ss.insert("insertOneNotice", mvo);
 	}// addData() end
 
 	public noticeVO getOneData(int bno) {
@@ -61,8 +60,4 @@ public class noticeDAO {
 	public void blindData(int bno) {
 	}
 
-	public int getPageCount() {
-		return pageCount;
-	}
-	
 }

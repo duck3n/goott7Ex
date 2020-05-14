@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.NoticeDeleteAction;
 import action.NoticeWriteAction;
+import action.NoticeWriteOkAction;
 import connection.LoginAdmin;
+import handler.CheckGrade;
 import action.NoticeDetailAction;
 import action.NoticeListAction;
 
@@ -33,6 +35,7 @@ public class NoticeControl extends HttpServlet{
 	public void doProcess(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		//테스트용 어드민 계정 모드
 		new LoginAdmin(req, resp);
+		System.out.println(new CheckGrade().CheckAdmin(req));
 		
 		//인코딩
 		req.setCharacterEncoding("UTF-8");
@@ -41,18 +44,18 @@ public class NoticeControl extends HttpServlet{
 		String cmd = req.getParameter("cmd"); //notice.do로 들어왔을 때 파라미터 값 가져오기
 		String viewPage = null;	//초기화(페이지 이동주소 담을 변수)
 		Action model = null; //초기화(액션 객체 담을 인터페이스)
-		System.out.println("반응");
+//		System.out.println("반응");
 		
 		if(cmd==null || cmd.equalsIgnoreCase("list")) { //파라미터값이 없거나 "list"라면
 			System.out.println("list");
 			model = new NoticeListAction();				//인터페이스에 리스트액션객체 삽입
 		}else if(cmd.equalsIgnoreCase("write")) {		//파라미터값이 "write"이면
+			//글 작성 페이지				
 			System.out.println("write");
 			model = new NoticeWriteAction();			//인터페이스에 write액션객체 삽입
-			//글 작성 페이지				
 		}else if(cmd.equalsIgnoreCase("writeOk")) {		//
 			System.out.println("writeOk");
-			model = new NoticeWriteAction();			//인터페이스에 insertForm액션객체 삽입
+			model = new NoticeWriteOkAction();			//인터페이스에 insertForm액션객체 삽입
 			//실제 글 작성 기능 수행
 		}else if(cmd.equalsIgnoreCase("detail")) {		//
 			System.out.println("detail");
@@ -63,9 +66,6 @@ public class NoticeControl extends HttpServlet{
 		}else if(cmd.equalsIgnoreCase("modifyOk")){		//
 			System.out.println("modifyOk");
 //			model = new ModifyWriteAction();			//
-		}else if(cmd.equalsIgnoreCase("delete")) {		//
-			System.out.println("delete");
-			model = new NoticeDeleteAction();					//
 		}
 		
 		try {

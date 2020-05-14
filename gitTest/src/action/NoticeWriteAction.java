@@ -16,6 +16,7 @@ public class NoticeWriteAction implements Action{
 			hwang_memberVo vo = (hwang_memberVo) req.getAttribute("member");
 			System.out.println("grade : "+vo.getGrade());
 			return "managePage/notice_write.jsp";
-		}else return "managePage/notice_list.jsp";
+		}else return "notice.do?cmd=list";
 	}
+	
 }
