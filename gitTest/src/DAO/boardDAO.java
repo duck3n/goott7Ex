@@ -1,17 +1,9 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import VO.boardVO;
 import connection.ConnectionManager;
-import connection.OracleXEConnection;
 
 public class boardDAO {
 	private SqlSession ss;
@@ -257,6 +249,7 @@ public class boardDAO {
 			e.printStackTrace();
 		}
 	}
+	
 }
 
 

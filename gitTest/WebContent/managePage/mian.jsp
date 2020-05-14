@@ -13,7 +13,6 @@
   	<jsp:include page="topBar.jsp"></jsp:include>
   	<div class="guide" id="body_container">
   	<%-- 몸통 부분 --%>
-  	<jsp:include page="<%=uri %>"></jsp:include>
   	</div>
   </div>
 
